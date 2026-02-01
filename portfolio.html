@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Kumar Shah | Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Enhanced Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .stagger-1 {
+            transition-delay: 0.1s;
+        }
+
+        .stagger-2 {
+            transition-delay: 0.2s;
+        }
+
+        .stagger-3 {
+            transition-delay: 0.3s;
+        }
+
+        .stagger-4 {
+            transition-delay: 0.4s;
+        }
+
+        .stagger-5 {
+            transition-delay: 0.5s;
+        }
+
+        .stagger-6 {
+            transition-delay: 0.6s;
+        }
+
+        .stagger-7 {
+            transition-delay: 0.7s;
+        }
+
+        .stagger-8 {
+            transition-delay: 0.8s;
+        }
+
+        /* Typing Animation */
+        .typing-text {
+            overflow: hidden;
+            border-right: 3px solid #667eea;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: #667eea;
+            }
+        }
+
+        /* Pulse Animation */
+        .pulse-slow {
+            animation: pulse-slow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-slow {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.5;
+            }
+        }
+
+        /* Gradient Animation */
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient-shift 4s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Input Focus Animation */
+        .input-animated {
+            transition: all 0.3s ease;
+        }
+
+        .input-animated:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Contact Card Hover */
+        .contact-card {
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            background: rgba(102, 126, 234, 0.15);
+        }
+
+        /* Hero text animation */
+        .hero-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: hero-fade-in 1s ease forwards;
+        }
+
+        .hero-animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .hero-animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .hero-animate-delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .hero-animate-delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes hero-fade-in {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#home" class="text-2xl font-bold gradient-text">AKS</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-gray-900 font-medium">About</a>
+                    <a href="#skills" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Contact</a>
+                </div>
+                <button id="menuBtn" class="md:hidden text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 space-y-4">
+                <a href="#home" class="block text-gray-600 hover:text-gray-900 font-medium">Home</a>
+                <a href="#about" class="block text-gray-600 hover:text-gray-900 font-medium">About</a>
+                <a href="#skills" class="block text-gray-600 hover:text-gray-900 font-medium">Skills</a>
+                <a href="#projects" class="block text-gray-600 hover:text-gray-900 font-medium">Projects</a>
+                <a href="#contact" class="block text-gray-600 hover:text-gray-900 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 hero-gradient opacity-5"></div>
+        <div
+            class="absolute top-20 right-20 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 floating pulse-slow">
+        </div>
+        <div class="absolute bottom-20 left-20 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 floating pulse-slow"
+            style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-2xl opacity-20 pulse-slow"
+            style="animation-delay: 2s;"></div>
+
+        <div class="max-w-6xl mx-auto px-6 py-20 text-center relative z-10">
+            <div class="mb-8 hero-animate">
+                <div
+                    class="w-40 h-40 mx-auto rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 p-1 shadow-2xl animate-gradient">
+                    <div class="w-full h-full rounded-full overflow-hidden bg-gray-200">
+                        <img src="profile.jpg" alt="Abhishek Kumar Shah"
+                            class="w-full h-full object-cover rounded-full" />
+                    </div>
+
+                </div>
+            </div>
+            <p class="text-indigo-600 font-medium mb-4 text-lg hero-animate hero-animate-delay-1">Hello, I'm</p>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 hero-animate hero-animate-delay-2">
+                <span class="gradient-text">Abhishek Kumar Shah</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto hero-animate hero-animate-delay-3">
+                <b>Data Scientist & Backend Developer </b><br>
+                Crafting intelligent solutions and scalable systems
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center hero-animate hero-animate-delay-4">
+                <a href="#projects"
+                    class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 animate-gradient">
+                    View My Work
+                </a>
+                <a href="#contact"
+                    class="px-8 py-4 border-2 border-indigo-600 text-indigo-600 rounded-full font-semibold hover:bg-indigo-600 hover:text-white transition-all duration-300">
+                    Get In Touch
+                </a>
+            </div>
+            <div class="flex justify-center gap-6 mt-12 hero-animate hero-animate-delay-4">
+                <a href="https://github.com/Abhishekshah02" target="_blank"
+                    class="text-gray-400 hover:text-gray-800 transition-all duration-300 hover:scale-125">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/abhishek-shah002/" target="_blank"
+                    class="text-gray-400 hover:text-blue-600 transition-all duration-300 hover:scale-125">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+                <a href="mailto:abhishekshah134567@gmail.com"
+                    class="text-gray-400 hover:text-red-500 transition-all duration-300 hover:scale-125">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/share/1GmuHBXsb7/?mibextid=wwXIfr"
+                    class="text-gray-400 hover:text-blue-600 transition-all duration-300 hover:scale-125">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/Abhishek.shah137"
+                    class="text-gray-400 hover:text-pink-600 transition-all duration-300 hover:scale-125">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in">
+                <h2 class="text-4xl font-bold text-center mb-4">About <span class="gradient-text">Me</span></h2>
+                <p class="text-gray-500 text-center mb-16 max-w-2xl mx-auto">Get to know me better</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="slide-left">
+                    <div class="relative">
+                        <div
+                            class="w-full h-96 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-2xl flex items-center justify-center text-8xl">
+                            🚀
+                        </div>
+                        <div
+                            class="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg animate-gradient">
+                            4+ Yrs
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-right">
+                    <h3 class="text-2xl font-bold mb-4">A passionate AI/ML and backend developer.</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        I’ve worked on projects ranging from medical image analysis (skin lesion classification &
+                        segmentation using CNNs and U-Net) to biometric identification systems like cattle muzzle
+                        pattern recognition. Currently, I’m gaining real-world experience as an Backend Intern at Drop.
+
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        I enjoy turning complex problems into practical solutions using Python, deep learning, and
+                        backend technologies.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="scale-in stagger-1">
+                            <p class="text-3xl font-bold gradient-text">10+</p>
+                            <p class="text-gray-500">Academic & Practical Projects</p>
+                        </div>
+                        <div class="scale-in stagger-2">
+                            <p class="text-3xl font-bold gradient-text">3+</p>
+                            <p class="text-gray-500">Industry Internship & Research Experience</p>
+                        </div>
+                    </div>
+                    <a href="#contact"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 hover:scale-105 transition-all duration-300">
+                        Let's Talk
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in">
+                <h2 class="text-4xl font-bold text-center mb-4">My <span class="gradient-text">Skills</span></h2>
+                <p class="text-gray-500 text-center mb-16 max-w-2xl mx-auto">Technologies and tools I work with</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Machine Learning -->
+                <div class="scale-in stagger-1 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
+                    <div class="text-5xl mb-4">
+                        <!-- Replace with ML/AI logo URL -->
+                        <img src="ml.png" alt="Abhishek Kumar Shah" class="w-12 h-12 mx-auto object-cover">
+
+                    </div>
+                    <h4 class="font-semibold">Machine Learning</h4>
+                    <p class="text-sm text-gray-500">AI/ML</p>
+                </div>
+
+                <!-- Python -->
+                <div class="scale-in stagger-2 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
+                    <div class="text-5xl mb-4">
+                        <!-- Replace with Python logo URL -->
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
+                            alt="Python" class="w-12 h-12 mx-auto">
+                    </div>
+                    <h4 class="font-semibold">Python</h4>
+                    <p class="text-sm text-gray-500">Programming</p>
+                </div>
+
+                <!-- C -->
+                <div class="scale-in stagger-3 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
+                    <div class="text-5xl mb-4">
+                        <!-- Replace with C logo URL -->
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg"
+                            alt="C Programming" class="w-12 h-12 mx-auto">
+                    </div>
+                    <h4 class="font-semibold">C</h4>
+                    <p class="text-sm text-gray-500">Programming</p>
+                </div>
+
+                <!-- C++ -->
+                <div class="scale-in stagger-4 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
+                    <div class="text-5xl mb-4">
+                        <!-- Replace with C++ logo URL -->
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++"
+                            class="w-12 h-12 mx-auto">
+                    </div>
+                    <h4 class="font-semibold">C++</h4>
+                    <p class="text-sm text-gray-500">Programming</p>
+                </div>
+
+                <!-- Java -->
+                <div class="scale-in stagger-5 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
+                    <div class="text-5xl mb-4">
+                        <!-- Replace with Java logo URL -->
+                        <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg"
+                            alt="Java" class="w-12 h-12 mx-auto">
+                    </div>
+                    <h4 class="font-semibold">Java</h4>
+                    <p class="text-sm text-gray-500">Programming</p>
+                </div>
+
+                <!-- Node.js -->
+                <div class="scale-in stagger-6 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
+                    <div class="text-5xl mb-4">
+                        <!-- Replace with Node.js logo URL -->
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js"
+                            class="w-12 h-12 mx-auto">
+                    </div>
+                    <h4 class="font-semibold">Node.js</h4>
+                    <p class="text-sm text-gray-500">Backend</p>
+                </div>
+
+                <!-- MongoDB -->
+                <div class="scale-in stagger-7 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
+                    <div class="text-5xl mb-4">
+                        <!-- Replace with MongoDB logo URL -->
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg" alt="MongoDB"
+                            class="w-12 h-12 mx-auto">
+                    </div>
+                    <h4 class="font-semibold">MongoDB</h4>
+                    <p class="text-sm text-gray-500">Database</p>
+                </div>
+
+                <!-- Figma -->
+                <div class="scale-in stagger-8 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
+                    <div class="text-5xl mb-4">
+                        <!-- Replace with Figma logo URL -->
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma"
+                            class="w-12 h-12 mx-auto">
+                    </div>
+                    <h4 class="font-semibold">Figma</h4>
+                    <p class="text-sm text-gray-500">Design</p>
+                </div>
+
+                <!-- AWS -->
+                <div class="scale-in stagger-1 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
+                    <div class="text-5xl mb-4">
+                        <!-- Replace with AWS logo URL -->
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
+                            alt="AWS" class="w-12 h-12 mx-auto">
+                    </div>
+                    <h4 class="font-semibold">AWS</h4>
+                    <p class="text-sm text-gray-500">Cloud</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id=" projects" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="fade-in">
+                <h2 class="text-4xl font-bold text-center mb-4">Featured <span class="gradient-text">Projects</span>
+                </h2>
+                <p class="text-gray-500 text-center mb-16 max-w-2xl mx-auto">Some of my recent
+                    work</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="scale-in stagger-1 card-hover bg-gray-50 rounded-2xl overflow-hidden shadow-sm">
+                    <div
+                        class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-6xl animate-gradient">
+                        🤖
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-3">
+                            <span
+                                class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-xs font-medium">Python</span>
+                            <span
+                                class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-xs font-medium">TensorFlow</span>
+                            <span
+                                class="px-3 py-1 bg-rose-100 text-rose-600 rounded-full text-xs font-medium">numpy</span>
+                            <span
+                                class="px-3 py-1 bg-rose-100 text-rose-600 rounded-full text-xs font-medium">matplotlib</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">
+                            Muzzle-Based-Biometric-Identification-System-For-Cattles-in-Nepal
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">Machine learning system for
+                            detecting the cattle through
+                            the muzzle of the cattle</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-indigo-600 font-medium text-sm hover:underline">Live
+                                Demo →</a>
+                            <a href="#" class="text-gray-500 font-medium text-sm hover:underline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="scale-in stagger-2 card-hover bg-gray-50 rounded-2xl overflow-hidden shadow-sm">
+                    <div
+                        class="h-48 bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-6xl animate-gradient">
+                        📊
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-3">
+                            <span
+                                class="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-xs font-medium">Python</span>
+                            <span
+                                class="px-3 py-1 bg-rose-100 text-rose-600 rounded-full text-xs font-medium">Pandas</span>
+                            <span
+                                class="px-3 py-1 bg-rose-100 text-rose-600 rounded-full text-xs font-medium">numpy</span>
+                            <span
+                                class="px-3 py-1 bg-rose-100 text-rose-600 rounded-full text-xs font-medium">matplotlib</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">
+                            Skin-Lesion-Classification-and-Segmentation</h3>
+                        <p class="text-gray-600 text-sm mb-4">Classfication of the skin lesion
+                            and segementation of the
+                            skin that can cause cancer</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-indigo-600 font-medium text-sm hover:underline">Live
+                                Demo →</a>
+                            <a href="#" class="text-gray-500 font-medium text-sm hover:underline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="scale-in stagger-3 card-hover bg-gray-50 rounded-2xl overflow-hidden shadow-sm">
+                    <div
+                        class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-6xl animate-gradient">
+                        🚀
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-2 mb-3">
+                            <span
+                                class="px-3 py-1 bg-emerald-100 text-emerald-600 rounded-full text-xs font-medium">Python</span>
+                            <span
+                                class="px-3 py-1 bg-teal-100 text-teal-600 rounded-full text-xs font-medium">tkinter</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Contact-Management-System</h3>
+                        <p class="text-gray-600 text-sm mb-4">Conatact management system
+                            designed using tkinter with the
+                            option to add conatact, edit contact, search contact, and delete
+                            contact</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-indigo-600 font-medium text-sm hover:underline">Live
+                                Demo →</a>
+                            <a href="#" class="text-gray-500 font-medium text-sm hover:underline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12 fade-in">
+                <a href="https://github.com/Abhishekshah02" target="_blank"
+                    class="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-full font-medium hover:border-indigo-600 hover:text-indigo-600 hover:scale-105 transition-all duration-300">
+                    View All Projects
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - Enhanced -->
+    <section id="contact"
+        class="py-20 bg-gradient-to-br from-gray-900 via-indigo-950 to-purple-950 text-white relative overflow-hidden">
+        <!-- Background decorations -->
+        <div
+            class="absolute top-0 left-0 w-72 h-72 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 floating">
+        </div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 floating"
+            style="animation-delay: 1.5s;"></div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="fade-in text-center mb-16">
+                <span
+                    class="inline-block px-4 py-2 bg-indigo-600/30 text-indigo-300 rounded-full text-sm font-medium mb-4">💬
+                    Let's Connect</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Get In <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Touch</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Have a project in mind? I'd love to hear about it.
+                    Let's create something amazing together!</p>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-12">
+                <!-- Contact Info Cards -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div
+                        class="slide-left stagger-1 contact-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-2xl">
+                                📧
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-400 mb-1">Email Me</p>
+                                <p class="font-semibold text-lg">abhishekshah134567@example.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="slide-left stagger-2 contact-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center text-2xl">
+                                📍
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-400 mb-1">Location</p>
+                                <p class="font-semibold text-lg">Kathmandu,Nepal</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="slide-left stagger-3 contact-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 cursor-pointer">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center text-2xl">
+                                📱
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-400 mb-1">Phone</p>
+                                <p class="font-semibold text-lg">+977 9867310644</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="slide-left stagger-4 pt-4">
+                        <p class="text-gray-400 mb-4">Follow me on social media</p>
+                        <div class="flex gap-4">
+                            <a href="https://github.com/Abhishekshah02" target="_blank"
+                                class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/abhishek-shah002/" target="_blank"
+                                class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-blue-600/50 hover:scale-110 transition-all duration-300">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                </svg>
+                            </a>
+                            <a href="https://twitter.com" target="_blank"
+                                class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-blue-400/50 hover:scale-110 transition-all duration-300">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                                </svg>
+                            </a>
+                            <a href="https://dribbble.com" target="_blank"
+                                class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-pink-500/50 hover:scale-110 transition-all duration-300">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.628 0-12 5.373-12 12s5.372 12 12 12 12-5.373 12-12-5.372-12-12-12zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073-.244-.563-.497-1.125-.767-1.68 2.31-1 4.165-2.358 5.548-4.082 1.35 1.594 2.197 3.619 2.322 5.835zm-3.842-7.282c-1.205 1.554-2.868 2.783-4.986 3.68-1.016-1.861-2.178-3.676-3.488-5.438.779-.197 1.591-.314 2.431-.314 2.275 0 4.368.779 6.043 2.072zm-10.516-.993c1.331 1.742 2.511 3.538 3.537 5.381-2.43.715-5.331 1.082-8.684 1.105.692-2.835 2.601-5.193 5.147-6.486zm-5.44 8.834l.013-.256c3.849-.005 7.169-.448 9.95-1.322.233.475.456.952.67 1.432-3.38 1.057-6.165 3.222-8.337 6.48-1.432-1.719-2.296-3.927-2.296-6.334zm3.829 7.81c1.969-3.088 4.482-5.098 7.598-6.027.928 2.42 1.609 4.91 2.043 7.46-3.349 1.291-6.953.666-9.641-1.433zm11.586.43c-.438-2.353-1.08-4.653-1.92-6.897 1.876-.265 3.94-.196 6.199.196-.437 2.786-2.028 5.192-4.279 6.701z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-3 slide-right">
+                    <form id="contactForm" action="https://formspree.io/f/xzdgnebb" method="POST"
+                        class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 space-y-6">
+
+                        <!-- Add this hidden input for Formspree -->
+                        <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio">
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-2">Your Name</label>
+                                <input type="text" name="name" placeholder="Abhishek" required
+                                    class="input-animated w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-indigo-500 focus:bg-white/10 text-white placeholder-gray-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-2">Your Email</label>
+                                <input type="email" name="email" placeholder="abhishek@example.com" required
+                                    class="input-animated w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-indigo-500 focus:bg-white/10 text-white placeholder-gray-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-2">Subject</label>
+                            <input type="text" name="subject" placeholder="Project Discussion"
+                                class="input-animated w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-indigo-500 focus:bg-white/10 text-white placeholder-gray-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-2">Your Message</label>
+                            <textarea name="message" placeholder="Tell me about your project..." rows="5" required
+                                class="input-animated w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-indigo-500 focus:bg-white/10 text-white placeholder-gray-500 resize-none"></textarea>
+                        </div>
+
+                        <!-- Add success/error messages container -->
+                        <div id="form-message" class="hidden p-4 rounded-lg"></div>
+
+                        <button type="submit"
+                            class="w-full px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 animate-gradient">
+                            <span id="submit-text">Send Message</span>
+                            <svg id="submit-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                            <svg id="loading-spinner" class="hidden w-5 h-5 animate-spin"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                    stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                </path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div> <!-- Close grid lg:grid-cols-5 -->
+        </div> <!-- Close max-w-6xl -->
+    </section> <!-- Close contact section -->
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-400 py-8 w-full">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="mb-4">© 2024 Abhishek Kumar Shah. All rights reserved.</p>
+            <div class="flex justify-center gap-8">
+                <a href="https://github.com/Abhishekshah02" target="_blank"
+                    class="hover:text-white transition-colors duration-300 hover:scale-105">
+                    GitHub
+                </a>
+                <a href="" target="_blank" class="hover:text-white transition-colors duration-300 hover:scale-105">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Formspree JavaScript (add this BEFORE your custom script) -->
+    <script>
+        // Formspree submission handling
+        var form = document.getElementById("contactForm");
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const submitText = document.getElementById('submit-text');
+            const submitIcon = document.getElementById('submit-icon');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const formMessage = document.getElementById('form-message');
+
+            // Show loading state
+            submitText.textContent = 'Sending...';
+            submitIcon.classList.add('hidden');
+            loadingSpinner.classList.remove('hidden');
+            submitBtn.disabled = true;
+
+            const data = new FormData(event.target);
+
+            try {
+                const response = await fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Success message
+                    showMessage('Message sent successfully! I\'ll get back to you soon.', 'success', formMessage);
+                    form.reset();
+
+                    // Change button to success state
+                    submitBtn.classList.remove('from-indigo-600', 'to-purple-600');
+                    submitBtn.classList.add('bg-green-600');
+                    submitText.textContent = 'Message Sent!';
+                    submitIcon.classList.remove('hidden');
+                    loadingSpinner.classList.add('hidden');
+
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        submitBtn.classList.add('from-indigo-600', 'to-purple-600');
+                        submitBtn.classList.remove('bg-green-600');
+                        submitText.textContent = 'Send Message';
+                    }, 3000);
+                } else {
+                    // Error message
+                    showMessage('Oops! Something went wrong. Please try again.', 'error', formMessage);
+                    resetButton(submitText, submitIcon, loadingSpinner, submitBtn);
+                }
+            } catch (error) {
+                // Network error
+                showMessage('Network error. Please check your connection and try again.', 'error', formMessage);
+                resetButton(submitText, submitIcon, loadingSpinner, submitBtn);
+            }
+        }
+
+        function resetButton(submitText, submitIcon, loadingSpinner, submitBtn) {
+            submitText.textContent = 'Send Message';
+            submitIcon.classList.remove('hidden');
+            loadingSpinner.classList.add('hidden');
+            submitBtn.disabled = false;
+        }
+
+        function showMessage(text, type, element) {
+            element.textContent = text;
+            element.className = 'p-4 rounded-lg ' +
+                (type === 'success' ? 'bg-green-500/20 text-green-400 border border-green-500/30' :
+                    'bg-red-500/20 text-red-400 border border-red-500/30');
+            element.classList.remove('hidden');
+
+            setTimeout(() => {
+                element.classList.add('hidden');
+            }, 5000);
+        }
+
+        form.addEventListener("submit", handleSubmit);
+    </script>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar background on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Scroll animations with stagger support
+        const animatedElements = document.querySelectorAll('.fade-in, .slide-left, .slide-right, .scale-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        animatedElements.forEach(el => observer.observe(el));
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating');
+            parallaxElements.forEach((el, index) => {
+                const speed = 0.1 + (index * 0.05);
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+
+</html>
