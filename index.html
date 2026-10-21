@@ -1,977 +1,961 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhishek Kumar Shah | Portfolio</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <style>
-        * {
-            font-family: 'Inter', sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhishek Kumar Shah — AI/ML &amp; Backend Engineer</title>
+  <meta name="description" content="Abhishek Kumar Shah is an AI/ML and backend engineer in Kathmandu, Nepal. Computer Engineering graduate (ACEM 2026), full-stack engineer at Drop, Fusemachines AI Fellow, cattle biometrics researcher. Open to new-grad ML and backend roles." />
+  <meta name="author" content="Abhishek Kumar Shah" />
+  <meta name="theme-color" content="#09090c" />
+  <link rel="canonical" href="https://abhishekkumarshah.com.np/" />
 
-        html {
-            scroll-behavior: smooth;
-        }
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Abhishek Kumar Shah — AI/ML &amp; Backend Engineer" />
+  <meta property="og:description" content="I ship production ML and the backends that serve it. Full-stack engineer at Drop · Fusemachines AI Fellow · B.E. Computer Engineering, ACEM 2026." />
+  <meta property="og:url" content="https://abhishekkumarshah.com.np/" />
+  <meta property="og:image" content="https://abhishekkumarshah.com.np/profile.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Abhishek Kumar Shah — AI/ML &amp; Backend Engineer" />
+  <meta name="twitter:description" content="Production ML, real-time backends, and computer-vision research from Kathmandu, Nepal." />
+  <meta name="twitter:image" content="https://abhishekkumarshah.com.np/profile.jpg" />
 
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2309090c'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='30' font-weight='700' text-anchor='middle' fill='%23a3e635'%3EAS%3C/text%3E%3C/svg%3E" />
 
-        .hero-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 
-        .card-hover {
-            transition: all 0.3s ease;
-        }
+  <script>
+    // Apply saved theme before paint to avoid a flash.
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+        else if (window.matchMedia("(prefers-color-scheme: light)").matches) document.documentElement.setAttribute("data-theme", "light");
+      } catch (e) {}
+    })();
+  </script>
 
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-link {
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        /* Enhanced Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .slide-left {
-            opacity: 0;
-            transform: translateX(-60px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .slide-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .slide-right {
-            opacity: 0;
-            transform: translateX(60px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .slide-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .scale-in.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .stagger-1 {
-            transition-delay: 0.1s;
-        }
-
-        .stagger-2 {
-            transition-delay: 0.2s;
-        }
-
-        .stagger-3 {
-            transition-delay: 0.3s;
-        }
-
-        .stagger-4 {
-            transition-delay: 0.4s;
-        }
-
-        .stagger-5 {
-            transition-delay: 0.5s;
-        }
-
-        .stagger-6 {
-            transition-delay: 0.6s;
-        }
-
-        .stagger-7 {
-            transition-delay: 0.7s;
-        }
-
-        .stagger-8 {
-            transition-delay: 0.8s;
-        }
-
-        /* Typing Animation */
-        .typing-text {
-            overflow: hidden;
-            border-right: 3px solid #667eea;
-            white-space: nowrap;
-            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-
-            to {
-                width: 100%;
-            }
-        }
-
-        @keyframes blink-caret {
-
-            from,
-            to {
-                border-color: transparent;
-            }
-
-            50% {
-                border-color: #667eea;
-            }
-        }
-
-        /* Pulse Animation */
-        .pulse-slow {
-            animation: pulse-slow 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse-slow {
-
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 0.3;
-            }
-
-            50% {
-                transform: scale(1.1);
-                opacity: 0.5;
-            }
-        }
-
-        /* Gradient Animation */
-        .animate-gradient {
-            background-size: 200% 200%;
-            animation: gradient-shift 4s ease infinite;
-        }
-
-        @keyframes gradient-shift {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        /* Input Focus Animation */
-        .input-animated {
-            transition: all 0.3s ease;
-        }
-
-        .input-animated:focus {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
-        }
-
-        /* Contact Card Hover */
-        .contact-card {
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            background: rgba(102, 126, 234, 0.15);
-        }
-
-        /* Hero text animation */
-        .hero-animate {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: hero-fade-in 1s ease forwards;
-        }
-
-        .hero-animate-delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .hero-animate-delay-2 {
-            animation-delay: 0.4s;
-        }
-
-        .hero-animate-delay-3 {
-            animation-delay: 0.6s;
-        }
-
-        .hero-animate-delay-4 {
-            animation-delay: 0.8s;
-        }
-
-        @keyframes hero-fade-in {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Abhishek Kumar Shah",
+    "url": "https://abhishekkumarshah.com.np/",
+    "image": "https://abhishekkumarshah.com.np/profile.jpg",
+    "email": "mailto:abhishekshah134567@gmail.com",
+    "telephone": "+977-9867310644",
+    "jobTitle": "AI/ML & Backend Engineer",
+    "worksFor": { "@type": "Organization", "name": "Drop", "url": "https://dropit.club" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Advanced College of Engineering and Management (ACEM)" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Kathmandu", "addressCountry": "NP" },
+    "sameAs": [
+      "https://github.com/Abhishekshah02",
+      "https://www.linkedin.com/in/abhishek-shah002/"
+    ],
+    "knowsAbout": ["Machine Learning", "Computer Vision", "Deep Learning", "Backend Development", "Node.js", "Python", "PyTorch", "TensorFlow", "FastAPI", "MongoDB"]
+  }
+  </script>
 </head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<body class="bg-gray-50 text-gray-800">
-    <!-- Navigation -->
-    <nav id="navbar"
-        class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="#home" class="text-2xl font-bold gradient-text">AKS</a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Home</a>
-                    <a href="#about" class="nav-link text-gray-600 hover:text-gray-900 font-medium">About</a>
-                    <a href="#skills" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Skills</a>
-                    <a href="#projects" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Projects</a>
-                    <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Contact</a>
-                </div>
-                <button id="menuBtn" class="md:hidden text-gray-600">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
+  <!-- SVG icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5C5.73.5.75 5.48.75 11.75c0 4.97 3.22 9.19 7.69 10.68.56.1.77-.24.77-.54v-1.9c-3.13.68-3.79-1.5-3.79-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.5-.28-5.12-1.25-5.12-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .94-.3 3.09 1.15a10.7 10.7 0 0 1 5.63 0c2.15-1.45 3.09-1.15 3.09-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.78.54 4.46-1.49 7.68-5.71 7.68-10.68C23.25 5.48 18.27.5 12 .5Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm0 1 8 6 8-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0 4-4m-4 4-4-4M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M14 4h6v6m0-6L10 14M20 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m0 0-6 6m6-6 6 6"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M3 10h18M8 3v4m8-4v4"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.2 6.3L21 10l-6.8 1.7L12 18l-2.2-6.3L3 10l6.8-1.7L12 2Z"/></symbol>
+  </svg>
+
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#home" aria-label="Abhishek Shah — home"><span class="brand__dot"></span>abhishek.shah</a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#credentials">Credentials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Toggle colour theme">
+          <svg class="icon-sun"><use href="#i-sun"/></svg>
+          <svg class="icon-moon"><use href="#i-moon"/></svg>
+        </button>
+        <a class="btn btn--primary btn--sm nav__resume" href="assets/Abhishek_Kumar_Shah_Resume.pdf" target="_blank" rel="noopener">
+          <svg><use href="#i-download"/></svg> Resume
+        </a>
+        <button class="icon-btn nav-burger" id="navBurger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#credentials">Credentials</a>
+    <a href="#contact">Contact</a>
+    <a href="assets/Abhishek_Kumar_Shah_Resume.pdf" target="_blank" rel="noopener">Resume (PDF) ↗</a>
+  </nav>
+
+  <main id="main">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="home">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <div class="status-pill reveal">
+            <span class="status-pill__dot"></span>
+            Open to new-grad ML &amp; backend roles · 2026
+          </div>
+
+          <h1 class="hero__title reveal" style="--d:80ms">
+            <span class="line">Abhishek</span>
+            <span class="line outline">Kumar Shah</span>
+          </h1>
+
+          <p class="hero__role reveal" style="--d:160ms" id="roleLine" aria-label="AI/ML and Backend Engineer">
+            <span id="roleText" data-roles='["AI/ML &amp; Backend Engineer","Computer Engineer · ACEM 2026","Full-Stack Engineer @ Drop","Machine Learning Engineer","Computer Vision Researcher","Backend Developer · Node.js &amp; FastAPI","Fusemachines AI Fellow 2026"]'>AI/ML &amp; Backend Engineer</span><span class="cursor" aria-hidden="true"></span>
+          </p>
+
+          <p class="hero__lead reveal" style="--d:240ms">
+            I ship <strong>production ML and the backends that serve it</strong>. Currently a full-stack engineer at
+            <strong>Drop</strong>, a social platform for real-world events, an <strong>AI Fellow at Fusemachines</strong>,
+            and a Computer Engineering graduate (ACEM, 2026) in Kathmandu who collects his own datasets on farms.
+          </p>
+
+          <div class="hero__cta reveal" style="--d:320ms">
+            <a class="btn btn--primary" href="#projects">View work <svg><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--ghost" href="assets/Abhishek_Kumar_Shah_Resume.pdf" target="_blank" rel="noopener">
+              <svg><use href="#i-download"/></svg> Resume
+            </a>
+            <div class="hero__socials">
+              <a class="icon-btn" href="https://github.com/Abhishekshah02" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#i-github"/></svg></a>
+              <a class="icon-btn" href="https://www.linkedin.com/in/abhishek-shah002/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+              <a class="icon-btn" href="mailto:abhishekshah134567@gmail.com" aria-label="Email"><svg><use href="#i-mail"/></svg></a>
             </div>
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 space-y-4">
-                <a href="#home" class="block text-gray-600 hover:text-gray-900 font-medium">Home</a>
-                <a href="#about" class="block text-gray-600 hover:text-gray-900 font-medium">About</a>
-                <a href="#skills" class="block text-gray-600 hover:text-gray-900 font-medium">Skills</a>
-                <a href="#projects" class="block text-gray-600 hover:text-gray-900 font-medium">Projects</a>
-                <a href="#contact" class="block text-gray-600 hover:text-gray-900 font-medium">Contact</a>
-            </div>
+          </div>
+
+          <div class="hero__meta reveal" style="--d:400ms">
+            <span><svg><use href="#i-pin"/></svg> Kalanki, Kathmandu · Nepal</span>
+            <span><svg><use href="#i-mail"/></svg> abhishekshah134567@gmail.com</span>
+            <span><svg><use href="#i-phone"/></svg> +977 986-731-0644</span>
+          </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 hero-gradient opacity-5"></div>
-        <div
-            class="absolute top-20 right-20 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 floating pulse-slow">
+        <div class="hero__visual reveal" style="--d:200ms">
+          <div class="photo-card" id="photoCard">
+            <img src="profile.jpg" alt="Portrait of Abhishek Kumar Shah" width="359" height="473" fetchpriority="high" />
+            <div class="photo-card__tag tag--1"><span class="ico ico--img"><img src="assets/img/drop-logo.png" alt="" width="30" height="30" onerror="this.parentNode.textContent='💧'" /></span><div>Drop<small>Full-stack · 2026</small></div></div>
+            <div class="photo-card__tag tag--2"><span class="ico ico--img"><img src="assets/img/fuse-ai-fellowship.png" alt="" width="30" height="30" onerror="this.parentNode.textContent='🧠'" /></span><div>Fusemachines<small>AI Fellow</small></div></div>
+            <div class="photo-card__tag tag--3"><span class="ico" style="background:var(--amber-soft)">🐄</span><div>Prixa<small>Research collaborator</small></div></div>
+          </div>
         </div>
-        <div class="absolute bottom-20 left-20 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 floating pulse-slow"
-            style="animation-delay: 1s;"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-2xl opacity-20 pulse-slow"
-            style="animation-delay: 2s;"></div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">scroll</div>
+    </section>
 
-        <div class="max-w-6xl mx-auto px-6 py-20 text-center relative z-10">
-            <div class="mb-8 hero-animate">
-                <div
-                    class="w-40 h-40 mx-auto rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 p-1 shadow-2xl animate-gradient">
-                    <div class="w-full h-full rounded-full overflow-hidden bg-gray-200">
-                        <img src="profile.jpg" alt="Abhishek Kumar Shah"
-                            class="w-full h-full object-cover rounded-full" />
-                    </div>
+    <!-- ===================== HIGHLIGHTS ===================== -->
+    <section class="section" aria-label="Highlights">
+      <div class="container">
+        <div class="bento">
+          <div class="tile reveal">
+            <div class="tile__kicker">Drop · web app</div>
+            <div class="tile__num"><em>#1</em> <span class="tile__unit">committer</span></div>
+            <p class="tile__label">Top contributor on the Next.js website and second on the Node.js backend of a live social platform.</p>
+          </div>
+          <div class="tile reveal" style="--d:80ms">
+            <div class="tile__kicker">Cattle biometrics</div>
+            <div class="tile__num">86.6<em>%</em></div>
+            <p class="tile__label">Top-1 identification across 455 cattle identities with a ResNet-50 + ArcFace embedding model (94.2% Top-5).</p>
+          </div>
+          <div class="tile reveal" style="--d:160ms">
+            <div class="tile__kicker">Field data</div>
+            <div class="tile__num"><em>90</em> <span class="tile__unit">cattle</span></div>
+            <p class="tile__label">Custom dataset collected on farms across the Kathmandu valley: face, left/right body and muzzle images per animal.</p>
+          </div>
+          <div class="tile reveal" style="--d:240ms">
+            <div class="tile__kicker">Fusemachines fellowship</div>
+            <div class="tile__num"><em>16</em> <span class="tile__unit">builds</span></div>
+            <p class="tile__label">Weekly deliverables from FastAPI services and churn models to a RAG + multi-agent support assistant.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                </div>
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">01 — About</span>
+            <h2 class="section-title">Engineer first, <em>researcher</em> when the problem needs it.</h2>
+          </div>
+        </div>
+
+        <div class="about__grid">
+          <div class="terminal reveal" aria-label="Quick profile">
+            <div class="terminal__bar"><i></i><i></i><i></i><span>abhishek@kathmandu — zsh</span></div>
+            <div class="terminal__body">
+              <span class="line"><span class="p">$</span> whoami</span>
+              <span class="line">Abhishek Kumar Shah</span>
+              <span class="line"> </span>
+              <span class="line"><span class="p">$</span> cat role.txt</span>
+              <span class="line"><span class="k">now</span>     = <span class="s">"Full-stack Engineer @ Drop"</span></span>
+              <span class="line"><span class="k">fellow</span>  = <span class="s">"Fusemachines AI Fellowship '26"</span></span>
+              <span class="line"><span class="k">degree</span>  = <span class="s">"B.E. Computer Engineering · ACEM · 2026"</span></span>
+              <span class="line"><span class="k">focus</span>   = [<span class="s">"computer vision"</span>, <span class="s">"ML systems"</span>, <span class="s">"backend"</span>]</span>
+              <span class="line"> </span>
+              <span class="line"><span class="p">$</span> ls research/</span>
+              <span class="line">cattle-muzzle-biometrics/  monkey-deterrence/  skin-lesion-segmentation/</span>
+              <span class="line"> </span>
+              <span class="line"><span class="p">$</span> echo $STATUS</span>
+              <span class="line"><span class="c"># open to ML / backend roles · remote or Kathmandu</span></span>
+              <span class="line"><span class="p">$</span> <span class="cursor" style="display:inline-block;width:8px;height:1em;background:var(--accent);vertical-align:-0.15em;animation:blink 1s steps(2) infinite"></span></span>
             </div>
-            <p class="text-indigo-600 font-medium mb-4 text-lg hero-animate hero-animate-delay-1">Hello, I'm</p>
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 hero-animate hero-animate-delay-2">
-                <span class="gradient-text">Abhishek Kumar Shah</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto hero-animate hero-animate-delay-3">
-                <b>Data Scientist & Backend Developer </b><br>
-                Crafting intelligent solutions and scalable systems
+          </div>
+
+          <div class="about__body reveal" style="--d:100ms">
+            <p>
+              I'm a Computer Engineering graduate from ACEM (class of 2026) who spent his final year shipping production code:
+              at <strong>Drop</strong> I own backend services, the website and the recommendation service of a live social app,
+              from API design and real-time chat to the EC2/Docker deployment and the health runbook.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center hero-animate hero-animate-delay-4">
-                <a href="#projects"
-                    class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 animate-gradient">
-                    View My Work
-                </a>
-                <a href="#contact"
-                    class="px-8 py-4 border-2 border-indigo-600 text-indigo-600 rounded-full font-semibold hover:bg-indigo-600 hover:text-white transition-all duration-300">
-                    Get In Touch
-                </a>
-            </div>
-            <div class="flex justify-center gap-6 mt-12 hero-animate hero-animate-delay-4">
-                <a href="https://github.com/Abhishekshah02" target="_blank"
-                    class="text-gray-400 hover:text-gray-800 transition-all duration-300 hover:scale-125">
-                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                    </svg>
-                </a>
-                <a href="https://www.linkedin.com/in/abhishek-shah002/" target="_blank"
-                    class="text-gray-400 hover:text-blue-600 transition-all duration-300 hover:scale-125">
-                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                    </svg>
-                </a>
-                <a href="mailto:abhishekshah134567@gmail.com"
-                    class="text-gray-400 hover:text-red-500 transition-all duration-300 hover:scale-125">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                </a>
-                <a href="https://www.facebook.com/share/1GmuHBXsb7/?mibextid=wwXIfr"
-                    class="text-gray-400 hover:text-blue-600 transition-all duration-300 hover:scale-125">
-                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                    </svg>
-                </a>
-                <a href="https://www.instagram.com/Abhishek.shah137"
-                    class="text-gray-400 hover:text-pink-600 transition-all duration-300 hover:scale-125">
-                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-                    </svg>
-                </a>
-            </div>
-        </div>
+            <p>
+              On the research side I build <strong>computer-vision systems for problems that matter in Nepal</strong>. As a Prixa
+              Student Collaborator I collected a cattle dataset on real farms and trained a muzzle-based biometric identifier.
+              Under Assoc. Prof. Dr. Shankar Dhakal I'm working on a <strong>monkey-deterrence system</strong> to protect farmers' crops.
+            </p>
+            <p>
+              I like problems where the model and the system around it both have to be right: data collection, training,
+              evaluation, then serving it fast and keeping it up.
+            </p>
 
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
+            <div class="now">
+              <div class="now__title"><svg width="14" height="14"><use href="#i-spark"/></svg> Currently</div>
+              <ul>
+                <li><span><strong>Shipping at Drop</strong> — feed, chat, media CDN, payments and ops for a product with real users.</span></li>
+                <li><span><strong>Finishing the Fusemachines AI Fellowship</strong> — final-stage work on agentic RAG systems and evaluation.</span></li>
+                <li><span><strong>Monkey-deterrence research</strong> — vision-based detection for crop protection, with Dr. Shankar Dhakal.</span></li>
+                <li><span><strong>Graduated</strong> — B.E. Computer Engineering, ACEM, 2026, no backlogs.</span></li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="fade-in">
-                <h2 class="text-4xl font-bold text-center mb-4">About <span class="gradient-text">Me</span></h2>
-                <p class="text-gray-500 text-center mb-16 max-w-2xl mx-auto">Get to know me better</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="slide-left">
-                    <div class="relative">
-                        <div
-                            class="w-full h-96 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-2xl flex items-center justify-center text-8xl">
-                            🚀
-                        </div>
-                        <div
-                            class="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg animate-gradient">
-                            4+ Yrs
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-right">
-                    <h3 class="text-2xl font-bold mb-4">A passionate AI/ML and backend developer.</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        I’ve worked on projects ranging from medical image analysis (skin lesion classification &
-                        segmentation using CNNs and U-Net) to biometric identification systems like cattle muzzle
-                        pattern recognition. Currently, I’m gaining real-world experience as an Backend Intern at Drop.
-
-                    </p>
-                    <p class="text-gray-600 mb-8 leading-relaxed">
-                        I enjoy turning complex problems into practical solutions using Python, deep learning, and
-                        backend technologies.
-                    </p>
-                    <div class="grid grid-cols-2 gap-6 mb-8">
-                        <div class="scale-in stagger-1">
-                            <p class="text-3xl font-bold gradient-text">10+</p>
-                            <p class="text-gray-500">Academic & Practical Projects</p>
-                        </div>
-                        <div class="scale-in stagger-2">
-                            <p class="text-3xl font-bold gradient-text">3+</p>
-                            <p class="text-gray-500">Industry Internship & Research Experience</p>
-                        </div>
-                    </div>
-                    <a href="#contact"
-                        class="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 hover:scale-105 transition-all duration-300">
-                        Let's Talk
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">02 — Experience</span>
+            <h2 class="section-title">Where I've <em>shipped</em>.</h2>
+          </div>
+          <p class="section-sub">Industry work, an AI fellowship and applied research. Every line is something I built or owned.</p>
         </div>
+
+        <div class="timeline">
+          <article class="xp reveal">
+            <div class="xp__when">
+              <b>Jan 2026 — Present</b>
+              Kathmandu, Nepal
+              <span class="chip chip--accent">Industry</span>
+            </div>
+            <div>
+              <h3 class="xp__role">Full-Stack Engineer · AI/ML &amp; Backend</h3>
+              <p class="xp__org"><a href="https://dropit.club" target="_blank" rel="noopener">Drop (dropit.club)</a> · social platform for real-world events · joined as AI/ML &amp; Backend Intern</p>
+              <ul class="xp__list">
+                <li><strong>Top committer on the Next.js website, second on the Node.js API</strong>; own features from API design through the web UI.</li>
+                <li>Built features end to end (API + web): hub group chat with per-hub storage billing, message forwarding and pinning, Instagram-style moments, spin-and-win lucky draw, QR-ticketed Explore events, Apple in-app-purchase coin store.</li>
+                <li>Own the <strong>recommendation service</strong> for the For-You feed (Python, FastAPI, FAISS, sentence-transformers) and migrated the droplet feed from push fan-out to pull with a RabbitMQ drain, removing an always-on recommender loop.</li>
+                <li>Built a <strong>Cloudflare Worker CDN</strong> that streams private Wasabi videos with HMAC-tokened URLs and edge caching; added a signed-URL cache in front of S3 for feed media.</li>
+                <li>Diagnosed 108-megapixel avatars being decoded on every paint: ran a production shrink job on ~860 images, capped uploads and cut page layers from 240 to 50.</li>
+                <li>Own the EC2/Docker deployment for API and website: migrated the production instance, resolved OOM incidents, wrote the weekly/monthly health runbook. Closed a public ticket-data leak and a batch of missing-auth routes.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">Express</span><span class="chip">MongoDB</span><span class="chip">Socket.IO</span><span class="chip">RabbitMQ</span><span class="chip">Redis</span><span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">AWS S3 / Lambda / EC2</span><span class="chip">Cloudflare Workers</span><span class="chip">Docker</span><span class="chip">FastAPI</span><span class="chip">FAISS</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="xp reveal">
+            <div class="xp__when">
+              <b>2026 — Present</b>
+              Final stage
+              <span class="chip chip--violet">Fellowship</span>
+            </div>
+            <div>
+              <h3 class="xp__role">AI Fellow</h3>
+              <p class="xp__org"><a href="https://github.com/Abhishekshah02/AI-Fellowship-Fusemachine" target="_blank" rel="noopener">Fusemachines AI Fellowship 2026</a> · selected cohort · 16 weekly builds</p>
+              <ul class="xp__list">
+                <li><strong>ML foundations with production habits:</strong> churn models with SMOTE inside CV folds and SHAP (test AUROC 0.81), plus a leakage demo showing how SMOTE-before-CV inflates AUROC to 0.93.</li>
+                <li><strong>NLP &amp; LLMs:</strong> CRF-based NER on CoNLL-2003/WNUT-17, LSTM text classification in PyTorch, and encoder (BERT / RoBERTa / ModernBERT) vs decoder (Qwen + LoRA) comparison for support-ticket routing.</li>
+                <li><strong>Agentic systems:</strong> text-to-SQL agent with validator and self-correction loop over PostgreSQL; a RAG + tool-calling support assistant with an ONNX intent router (99.8% accuracy, ~1 ms) and a multi-agent dispute investigator with a verifier sub-agent (7/7 cases vs 3/7 single-agent).</li>
+                <li><strong>Computer vision:</strong> surface-defect classification, an OpenCV fruit-sorting pipeline (CLAHE, morphology, Hough circles) and ONNX export of a ResNet-50.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">PyTorch</span><span class="chip">scikit-learn</span><span class="chip">Hugging Face</span><span class="chip">LoRA / PEFT</span><span class="chip">Chroma</span><span class="chip">ONNX</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Docker Compose</span><span class="chip">pytest</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="xp reveal">
+            <div class="xp__when">
+              <b>Ongoing</b>
+              ACEM, Kathmandu
+              <span class="chip chip--amber">Research</span>
+            </div>
+            <div>
+              <h3 class="xp__role">Research Assistant · Monkey Deterrence System</h3>
+              <p class="xp__org">Supervised by Assoc. Prof. Dr. Shankar Dhakal</p>
+              <ul class="xp__list">
+                <li>Crop raiding by monkeys causes serious losses for farmers across Nepal's hills. The project is building a <strong>vision-based system</strong> that detects monkeys near farmland and triggers deterrents.</li>
+                <li>Research is ongoing; methods and results will be shared once the study is complete.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Computer vision</span><span class="chip">PyTorch</span><span class="chip">OpenCV</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="xp reveal">
+            <div class="xp__when">
+              <b>2025 — 2026</b>
+              Kathmandu valley
+              <span class="chip chip--amber">Research</span>
+            </div>
+            <div>
+              <h3 class="xp__role">Student Collaborator · Cattle Muzzle Biometrics</h3>
+              <p class="xp__org">Prixa Student Collaborator program (selected) · <a href="https://github.com/Abhishekshah02/Muzzle-Based-Biometric-Identification-System-For-Cattles-in-Nepal" target="_blank" rel="noopener">repo</a></p>
+              <ul class="xp__list">
+                <li>Assigned the <strong>Muzzle-Based Biometric Identification System for Cattle in Nepal</strong> as the collaborative research project. Collected a 90-animal dataset on real farms, then trained classical and deep models.</li>
+                <li>Best model: ResNet-50 + ArcFace embedding, <strong>86.6% Top-1 / 94.2% Top-5</strong> across 455 identities (EER 0.037, ROC-AUC 0.988). Built a Flutter app to register and identify cattle by camera.</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">TensorFlow / Keras</span><span class="chip">ArcFace</span><span class="chip">OpenCV</span><span class="chip">LBP / HOG / Gabor</span><span class="chip">Flutter</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="fade-in">
-                <h2 class="text-4xl font-bold text-center mb-4">My <span class="gradient-text">Skills</span></h2>
-                <p class="text-gray-500 text-center mb-16 max-w-2xl mx-auto">Technologies and tools I work with</p>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Machine Learning -->
-                <div class="scale-in stagger-1 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
-                    <div class="text-5xl mb-4">
-                        <!-- Replace with ML/AI logo URL -->
-                        <img src="ml.png" alt="Abhishek Kumar Shah" class="w-12 h-12 mx-auto object-cover">
-
-                    </div>
-                    <h4 class="font-semibold">Machine Learning</h4>
-                    <p class="text-sm text-gray-500">AI/ML</p>
-                </div>
-
-                <!-- Python -->
-                <div class="scale-in stagger-2 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
-                    <div class="text-5xl mb-4">
-                        <!-- Replace with Python logo URL -->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
-                            alt="Python" class="w-12 h-12 mx-auto">
-                    </div>
-                    <h4 class="font-semibold">Python</h4>
-                    <p class="text-sm text-gray-500">Programming</p>
-                </div>
-
-                <!-- C -->
-                <div class="scale-in stagger-3 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
-                    <div class="text-5xl mb-4">
-                        <!-- Replace with C logo URL -->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg"
-                            alt="C Programming" class="w-12 h-12 mx-auto">
-                    </div>
-                    <h4 class="font-semibold">C</h4>
-                    <p class="text-sm text-gray-500">Programming</p>
-                </div>
-
-                <!-- C++ -->
-                <div class="scale-in stagger-4 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
-                    <div class="text-5xl mb-4">
-                        <!-- Replace with C++ logo URL -->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++"
-                            class="w-12 h-12 mx-auto">
-                    </div>
-                    <h4 class="font-semibold">C++</h4>
-                    <p class="text-sm text-gray-500">Programming</p>
-                </div>
-
-                <!-- Java -->
-                <div class="scale-in stagger-5 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
-                    <div class="text-5xl mb-4">
-                        <!-- Replace with Java logo URL -->
-                        <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg"
-                            alt="Java" class="w-12 h-12 mx-auto">
-                    </div>
-                    <h4 class="font-semibold">Java</h4>
-                    <p class="text-sm text-gray-500">Programming</p>
-                </div>
-
-                <!-- Node.js -->
-                <div class="scale-in stagger-6 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
-                    <div class="text-5xl mb-4">
-                        <!-- Replace with Node.js logo URL -->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js"
-                            class="w-12 h-12 mx-auto">
-                    </div>
-                    <h4 class="font-semibold">Node.js</h4>
-                    <p class="text-sm text-gray-500">Backend</p>
-                </div>
-
-                <!-- MongoDB -->
-                <div class="scale-in stagger-7 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
-                    <div class="text-5xl mb-4">
-                        <!-- Replace with MongoDB logo URL -->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg" alt="MongoDB"
-                            class="w-12 h-12 mx-auto">
-                    </div>
-                    <h4 class="font-semibold">MongoDB</h4>
-                    <p class="text-sm text-gray-500">Database</p>
-                </div>
-
-                <!-- Figma -->
-                <div class="scale-in stagger-8 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
-                    <div class="text-5xl mb-4">
-                        <!-- Replace with Figma logo URL -->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma"
-                            class="w-12 h-12 mx-auto">
-                    </div>
-                    <h4 class="font-semibold">Figma</h4>
-                    <p class="text-sm text-gray-500">Design</p>
-                </div>
-
-                <!-- AWS -->
-                <div class="scale-in stagger-1 card-hover bg-white p-6 rounded-2xl text-center shadow-sm">
-                    <div class="text-5xl mb-4">
-                        <!-- Replace with AWS logo URL -->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
-                            alt="AWS" class="w-12 h-12 mx-auto">
-                    </div>
-                    <h4 class="font-semibold">AWS</h4>
-                    <p class="text-sm text-gray-500">Cloud</p>
-                </div>
-            </div>
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">03 — Projects</span>
+            <h2 class="section-title">Selected <em>work</em>.</h2>
+          </div>
+          <div class="filters" role="tablist" aria-label="Filter projects">
+            <button class="filter is-active" data-filter="all" type="button">All</button>
+            <button class="filter" data-filter="ai" type="button">AI / ML</button>
+            <button class="filter" data-filter="backend" type="button">Backend</button>
+            <button class="filter" data-filter="research" type="button">Research</button>
+            <button class="filter" data-filter="mobile" type="button">Mobile</button>
+          </div>
         </div>
+
+        <div class="projects" id="projectGrid">
+
+          <!-- Drop -->
+          <article class="project project--featured reveal" data-tags="backend ai" tabindex="0">
+            <div class="project__top">
+              <div class="project__icon project__icon--img"><img src="assets/img/drop-logo.png" alt="" width="46" height="46" onerror="this.parentNode.classList.remove('project__icon--img');this.parentNode.textContent='💧'" /></div>
+              <div class="project__links">
+                <a href="https://dropit.club" target="_blank" rel="noopener" aria-label="Open dropit.club" data-stop><svg><use href="#i-external"/></svg></a>
+              </div>
+            </div>
+            <div class="project__kind">Industry · Full-stack · 2026</div>
+            <h3 class="project__title">Drop — social platform for real-world events</h3>
+            <p class="project__desc">
+              Users create event spaces ("droplets") with chat, albums and feeds, run QR-ticketed events, post stories and
+              discover content through a personalised For-You feed and live map. Shipped as a Next.js site, React Native apps
+              and an admin dashboard. I was a core contributor across the backend and website.
+            </p>
+            <div class="feat-stats">
+              <div><b>#1 / #2</b><span>committer on web / backend</span></div>
+              <div><b>240 → 50</b><span>page layers after avatar fix</span></div>
+              <div><b>~860</b><span>images shrunk in a prod job</span></div>
+            </div>
+            <div class="chips">
+              <span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">MongoDB</span><span class="chip">Socket.IO</span><span class="chip">RabbitMQ</span><span class="chip">Next.js</span><span class="chip">FastAPI + FAISS</span><span class="chip">Cloudflare Workers</span><span class="chip">AWS</span>
+            </div>
+            <button class="project__more" type="button" data-open>Read the case study <svg><use href="#i-arrow"/></svg></button>
+
+            <div class="project__details">
+              <h4>Context</h4>
+              <p>Drop is a social media platform built around real-world events. Users create "droplets" (shared event spaces with members, group chat, photo/video albums and a feed), group them into "hubs", run QR-ticketed "explore" events where attendees scan in and upload media, post stories ("moments"), chat 1:1 and in squads, and discover content through a personalised For-You feed and a live map. Monetised via coins, subscriptions and boosted posts.</p>
+              <p>I was a core contributor across the backend and website (top committer on the web app, second on the backend), owning features from the API through the web UI.</p>
+
+              <h4>Features built end to end (API + web)</h4>
+              <ul>
+                <li>Hub group chat with media uploads and per-hub storage billing.</li>
+                <li>Real-time chat upgrades: forward messages (re-encrypted text, single S3 copy for media), pinned chats and messages, caption bubbles, floating chat heads.</li>
+                <li>Moments (stories): always-open row and a server-side "revibe" reshare.</li>
+                <li>Spin-and-win lucky draw for droplets, hubs and explore events with a full-screen UI.</li>
+                <li>Pin up to 3 posts on a profile; profile badges for event attendance.</li>
+                <li>QR-ticketed Explore events: seat limits, per-node media access rules, zero-storage tickets, admin-only pages; closed a public ticket-data leak.</li>
+                <li>Sub-squad management (edit / add / remove / leave / delete with safety rules).</li>
+                <li>Apple In-App Purchase coin store to pass App Store review, plus the Apple support page.</li>
+                <li>Website map rebuilt to match the mobile app (themes, nearby droplets, bottom nav).</li>
+                <li>All-format uploads with server-side conversion of RAW/HEIC and unusual video codecs.</li>
+              </ul>
+
+              <h4>Performance and reliability</h4>
+              <ul>
+                <li>Migrated the droplet feed from push fan-out to <strong>pull with seen-memory and a RabbitMQ pull-drain</strong>, removing an always-on recommender loop and a consumer leak.</li>
+                <li>Signed-URL caching layer in front of S3 for feed media.</li>
+                <li>Built a <strong>Cloudflare Worker CDN</strong> that streams private Wasabi videos through the platform's video subdomain with HMAC-tokened URLs and edge caching; added MP4 faststart.</li>
+                <li>Diagnosed and fixed 108-megapixel avatars being decoded per paint: ran a production shrink job on ~860 images, capped uploads, cut page layers from 240 to 50.</li>
+                <li>Traced "disappearing posts" to dead join rows eating page slots; fixed the paging and added a nightly cleanup cron.</li>
+                <li>Fixed multi-device call handling, capture-code media stuck invisible for 20 minutes, browser-cached 410 responses, case-insensitive usernames (prod index + migration) and a batch of missing-auth routes.</li>
+              </ul>
+
+              <h4>Recommendation service</h4>
+              <ul>
+                <li>Python service (FastAPI, FAISS, sentence-transformers) that powers the personalised For-You feed; I own it end to end alongside the feed migration above.</li>
+              </ul>
+
+              <h4>Payments, billing and ops</h4>
+              <ul>
+                <li>Postpaid organisation billing with invoices and Fonepay; Khalti HMAC integration spec; coin-pricing audit with admin-controlled pricing as the source of truth.</li>
+                <li>Own the EC2 / Docker deployment for the API and website; migrated the production instance, resolved OOM incidents, wrote the weekly/monthly health runbook.</li>
+              </ul>
+
+              <h4>Stack</h4>
+              <div class="chips">
+                <span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">TypeScript</span><span class="chip">MongoDB / Mongoose</span><span class="chip">Socket.IO</span><span class="chip">RabbitMQ</span><span class="chip">Redis</span><span class="chip">Zod</span><span class="chip">AWS S3 / Wasabi</span><span class="chip">AWS Lambda (HLS)</span><span class="chip">Cloudflare Workers</span><span class="chip">Firebase push</span><span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">Redux Toolkit</span><span class="chip">Tailwind</span><span class="chip">Framer Motion</span><span class="chip">HLS.js</span><span class="chip">Leaflet</span><span class="chip">Docker / EC2</span><span class="chip">Playwright / Jest</span><span class="chip">Python · FastAPI · FAISS</span>
+              </div>
+              <div class="modal__foot-links" data-links='[{"label":"Visit dropit.club","href":"https://dropit.club"}]'></div>
+            </div>
+          </article>
+
+          <!-- ShopAssist -->
+          <article class="project reveal" data-tags="ai backend" tabindex="0" style="--d:80ms">
+            <div class="project__top">
+              <div class="project__icon project__icon--img"><img src="assets/img/fuse-ai-fellowship.png" alt="" width="46" height="46" onerror="this.parentNode.classList.remove('project__icon--img');this.parentNode.textContent='🤖'" /></div>
+              <div class="project__links">
+                <a href="https://github.com/Abhishekshah02/AI-Fellowship-Fusemachine" target="_blank" rel="noopener" aria-label="GitHub repository" data-stop><svg><use href="#i-github"/></svg></a>
+              </div>
+            </div>
+            <div class="project__kind">Fusemachines fellowship · LLM systems</div>
+            <h3 class="project__title">ShopAssist AI — RAG + multi-agent support assistant</h3>
+            <p class="project__desc">Customer-support assistant with retrieval, tool calling and an agentic dispute investigator that is checked by a separate verifier agent.</p>
+            <ul class="project__impact">
+              <li>ONNX intent router: <strong>99.8% accuracy, ~1 ms</strong>, 429 KB</li>
+              <li>Multi-agent investigation: <strong>7/7 cases</strong> vs 3/7 single-agent</li>
+              <li>27/27 correct tool calls on a deterministic eval harness</li>
+            </ul>
+            <div class="chips">
+              <span class="chip">FastAPI</span><span class="chip">Chroma</span><span class="chip">ONNX</span><span class="chip">Claude / OpenAI-compatible</span><span class="chip">Docker</span>
+            </div>
+            <button class="project__more" type="button" data-open>Details <svg><use href="#i-arrow"/></svg></button>
+
+            <div class="project__details">
+              <h4>Problem</h4>
+              <p>Support bots either hallucinate or cannot act. The goal was an assistant that grounds answers in a knowledge base, calls real tools (order lookup, ticket creation) and can investigate a dispute over multiple steps without going off the rails.</p>
+              <h4>What I built</h4>
+              <ul>
+                <li>FastAPI service with a Streamlit UI; Chroma vector store using <code>all-MiniLM-L6-v2</code> on onnxruntime for retrieval.</li>
+                <li>Tiny ONNX intent router (429 KB, ~1 ms) in front of the LLM: 0.998 accuracy, 0.9985 macro-F1.</li>
+                <li>Provider-agnostic LLM layer (Anthropic Claude or any OpenAI-compatible endpoint such as Groq, Gemini, OpenRouter, vLLM, Ollama) with a fallback ladder, tenacity retries, token-bucket rate limiting and a TTL cache exposed via an <code>X-Cache</code> header.</li>
+                <li>Tools <code>lookup_order</code>, <code>search_knowledge_base</code>, <code>create_support_ticket</code> with closed Pydantic JSON schemas; endpoints <code>/chat /ingest /health /metrics /schema</code>; Docker Compose with an optional vLLM Mistral-7B profile; 20 offline pytest tests and a benchmark script.</li>
+                <li><strong>Agentic dispute investigation</strong> (<code>POST /investigate</code>): up to 10 steps with 3 investigative and 3 terminal tools, a separate verifier sub-agent, per-role token accounting, context clearing, repeat detection and fault injection.</li>
+              </ul>
+              <h4>Result</h4>
+              <ul>
+                <li>Custom deterministic eval harness (7 cases): multi-agent 7/7 completion vs 3/7 single-agent, 27/27 correct tool calls, at +19% tokens (model: gpt-oss-120b on Groq).</li>
+              </ul>
+              <h4>Stack</h4>
+              <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Streamlit</span><span class="chip">Chroma</span><span class="chip">onnxruntime</span><span class="chip">Pydantic</span><span class="chip">Docker Compose</span><span class="chip">pytest</span></div>
+              <div class="modal__foot-links" data-links='[{"label":"View on GitHub","href":"https://github.com/Abhishekshah02/AI-Fellowship-Fusemachine"}]'></div>
+            </div>
+          </article>
+
+          <!-- Cattle -->
+          <article class="project project--featured reveal" data-tags="ai research mobile" tabindex="0">
+            <div class="project__top">
+              <div class="project__icon" style="background:var(--amber-soft)">🐄</div>
+              <div class="project__links">
+                <a href="https://github.com/Abhishekshah02/Muzzle-Based-Biometric-Identification-System-For-Cattles-in-Nepal" target="_blank" rel="noopener" aria-label="GitHub repository" data-stop><svg><use href="#i-github"/></svg></a>
+              </div>
+            </div>
+            <div class="project__kind">Research · Prixa Student Collaborator · 2025–26</div>
+            <h3 class="project__title">Muzzle-based biometric identification for cattle in Nepal</h3>
+            <p class="project__desc">
+              Ear tags fall off or get swapped, so farmers, insurers and vets have no reliable way to identify an individual animal. A muzzle print is
+              unique like a fingerprint. I collected a farm dataset, compared classical feature matching with deep metric learning,
+              and shipped a mobile app to register and identify animals by camera.
+            </p>
+            <div class="feat-stats">
+              <div><b>86.6%</b><span>Top-1 across 455 identities</span></div>
+              <div><b>0.037</b><span>equal-error rate · AUC 0.988</span></div>
+              <div><b>90</b><span>cattle photographed on farms</span></div>
+            </div>
+            <div class="chips">
+              <span class="chip">TensorFlow / Keras</span><span class="chip">ResNet-50 + ArcFace</span><span class="chip">Albumentations</span><span class="chip">LBP · LPQ · HOG · Gabor</span><span class="chip">OpenCV</span><span class="chip">Flutter</span>
+            </div>
+            <button class="project__more" type="button" data-open>Read the case study <svg><use href="#i-arrow"/></svg></button>
+
+            <div class="project__details">
+              <h4>Problem</h4>
+              <p>Smallholder farmers and insurers in Nepal need a cheap, tamper-proof way to identify individual cattle. Ear tags fall off and get swapped; muzzle patterns do not change.</p>
+              <h4>Data</h4>
+              <ul>
+                <li>Collected a custom dataset by visiting farms across the Kathmandu valley: <strong>90 cattle</strong>, each with full-face, left/right body and multiple muzzle images.</li>
+                <li>Trained and evaluated on two muzzle datasets: 455 identities / 2,747 images (long-tailed, 55 single-image classes) and 268 identities / 4,923 images.</li>
+                <li>Per-class split rules for tiny classes and offline Albumentations augmentation (random resized crops, flips, shift/scale/rotate, brightness/contrast, noise, blur, gamma, coarse dropout) to guarantee at least 10 training images per identity.</li>
+              </ul>
+              <h4>Approaches</h4>
+              <ul>
+                <li><strong>Classical:</strong> LBP, LPQ, HOG, Gabor filters and blob detection feeding heuristic matching and an SVM.</li>
+                <li><strong>Deep metric learning:</strong> ImageNet-pretrained ResNet-50 backbone with a 512-d embedding and an <strong>ArcFace head</strong> (s=30, m=0.35), PK-sampled batches, two-stage training (frozen backbone, then last 50 layers unfrozen). Compared Adam, AdamW with balanced class weights and RectifiedAdam.</li>
+                <li>Also benchmarked ResNet-18, MobileNet, DenseNet and a Swin Transformer as backbones.</li>
+              </ul>
+              <h4>Results (455-identity test set)</h4>
+              <ul>
+                <li><strong>Top-1 86.55%, Top-5 94.18%</strong>, balanced accuracy 84.5%, macro-F1 0.81.</li>
+                <li>Verification: <strong>EER 0.037, ROC-AUC 0.988</strong>.</li>
+              </ul>
+              <h4>Product</h4>
+              <ul>
+                <li>Flutter mobile app to register new cattle and identify existing ones through the camera.</li>
+              </ul>
+              <div class="modal__foot-links" data-links='[{"label":"View on GitHub","href":"https://github.com/Abhishekshah02/Muzzle-Based-Biometric-Identification-System-For-Cattles-in-Nepal"}]'></div>
+            </div>
+          </article>
+
+          <!-- Monkey -->
+          <article class="project reveal" data-tags="ai research" tabindex="0" style="--d:80ms">
+            <div class="project__top">
+              <div class="project__icon" style="background:var(--rose-soft)">🐒</div>
+              <div class="project__links"><span class="chip chip--rose">In progress</span></div>
+            </div>
+            <div class="project__kind">Research · with Dr. Shankar Dhakal</div>
+            <h3 class="project__title">Monkey deterrence system for crop protection</h3>
+            <p class="project__desc">Computer-vision research into detecting monkeys near farmland and triggering deterrents automatically. Crop raiding is a serious, widespread problem for farmers in Nepal's hills.</p>
+            <ul class="project__impact">
+              <li>Detection of monkeys from camera footage</li>
+              <li>Automatic deterrent actions on detection</li>
+              <li>Ongoing study; results to be published</li>
+            </ul>
+            <div class="chips">
+              <span class="chip">PyTorch</span><span class="chip">OpenCV</span><span class="chip">Object detection</span>
+            </div>
+            <button class="project__more" type="button" data-open>Details <svg><use href="#i-arrow"/></svg></button>
+
+            <div class="project__details">
+              <h4>Problem</h4>
+              <p>Monkeys raiding fields is a widespread problem across Nepal's hills: crops are lost every season and guarding fields by hand is not practical.</p>
+              <h4>Approach</h4>
+              <ul>
+                <li>Camera-based monkey detection using deep-learning object detection.</li>
+                <li>Logic that turns detections into deterrent actions, so the system can respond without a person watching the field.</li>
+              </ul>
+              <h4>Status</h4>
+              <p>Ongoing research under Assoc. Prof. Dr. Shankar Dhakal at ACEM. Results and code will be published when the study completes.</p>
+              <div class="chips"><span class="chip">PyTorch</span><span class="chip">OpenCV</span><span class="chip">Python</span></div>
+            </div>
+          </article>
+
+          <!-- Skin lesion -->
+          <article class="project reveal" data-tags="ai backend research" tabindex="0">
+            <div class="project__top">
+              <div class="project__icon" style="background:var(--sky-soft)">🩺</div>
+              <div class="project__links">
+                <a href="https://github.com/Abhishekshah02/Skin-Lesion-Classification-and-Segmentation" target="_blank" rel="noopener" aria-label="GitHub repository" data-stop><svg><use href="#i-github"/></svg></a>
+              </div>
+            </div>
+            <div class="project__kind">Research · Medical imaging · CNN + U-Net</div>
+            <h3 class="project__title">Skin lesion classification &amp; segmentation</h3>
+            <p class="project__desc">Classifies dermoscopy images into 7 lesion types and segments the lesion region, served through a Flask app that returns class, calibrated confidence, malignancy note and a mask.</p>
+            <ul class="project__impact">
+              <li>HAM10000: <strong>10,015 images</strong>, 7 classes, class-balanced to 5,000/class</li>
+              <li>U-Net with Dice + focal-Tversky losses on 10,015 image/mask pairs</li>
+              <li>Custom CNN vs ResNet-50 vs MobileNet transfer-learning comparison</li>
+            </ul>
+            <div class="chips">
+              <span class="chip">TensorFlow / Keras</span><span class="chip">U-Net</span><span class="chip">Flask</span><span class="chip">NumPy</span>
+            </div>
+            <button class="project__more" type="button" data-open>Details <svg><use href="#i-arrow"/></svg></button>
+
+            <div class="project__details">
+              <h4>Problem</h4>
+              <p>Early triage of skin lesions depends on expert dermatologists who are scarce outside cities. The model gives a first-pass class and highlights the affected region.</p>
+              <h4>What I built</h4>
+              <ul>
+                <li><strong>Classification:</strong> custom CNN over the 7 HAM10000 classes (bkl, nv, df, mel, vasc, bcc, akiec). Heavy class imbalance handled by resampling and augmenting every class to 5,000 images (rotation, shift, shear, flip, contrast) with a 70:20:10 split; compared against ResNet-50 and MobileNet transfer learning.</li>
+                <li><strong>Segmentation:</strong> custom U-Net trained on 10,015 image/mask pairs with combined Dice and focal-Tversky loss.</li>
+                <li><strong>Serving:</strong> Flask app that loads both models, resizes uploads to 256×256, returns the top class with temperature-scaled softmax confidence, lesion metadata (full name, malignancy, recommendation) and a thresholded binary mask rendered inline. Seeds fixed for determinism.</li>
+              </ul>
+              <h4>Stack</h4>
+              <div class="chips"><span class="chip">Python</span><span class="chip">TensorFlow / Keras</span><span class="chip">NumPy</span><span class="chip">Matplotlib</span><span class="chip">Flask</span></div>
+              <div class="modal__foot-links" data-links='[{"label":"View on GitHub","href":"https://github.com/Abhishekshah02/Skin-Lesion-Classification-and-Segmentation"}]'></div>
+            </div>
+          </article>
+
+          <!-- IMU hackathon -->
+          <article class="project reveal" data-tags="ai" tabindex="0" style="--d:80ms">
+            <div class="project__top">
+              <div class="project__icon" style="background:var(--accent-soft)">⌚</div>
+              <div class="project__links">
+                <a href="https://github.com/Abhishekshah02/protobytes-2.0-team-Coder-Rex" target="_blank" rel="noopener" aria-label="GitHub repository" data-stop><svg><use href="#i-github"/></svg></a>
+              </div>
+            </div>
+            <div class="project__kind">Hackathon · Protobytes 2.0 · Feb 2026</div>
+            <h3 class="project__title">Universal IMU-to-health pipeline</h3>
+            <p class="project__desc">Self-supervised motion embeddings that standardise accelerometer data across wearables, with fall detection and activity recognition on top of a frozen encoder.</p>
+            <ul class="project__impact">
+              <li><strong>83.0%</strong> overall accuracy across three device datasets</li>
+              <li><strong>96.3%</strong> on the Fall class; 95.6% on Walking</li>
+              <li>1D-CNN encoder + NT-Xent contrastive loss, Streamlit dashboard</li>
+            </ul>
+            <div class="chips">
+              <span class="chip">PyTorch</span><span class="chip">Contrastive learning</span><span class="chip">Streamlit</span><span class="chip">UMAP / t-SNE</span>
+            </div>
+            <button class="project__more" type="button" data-open>Details <svg><use href="#i-arrow"/></svg></button>
+
+            <div class="project__details">
+              <h4>Problem</h4>
+              <p>Every wearable samples motion differently, so health models trained on one device fail on another. The team (Coder Rex, 4 ACEM students) built a device-agnostic embedding so one classifier can serve many devices.</p>
+              <h4>What we built</h4>
+              <ul>
+                <li><code>IMUEncoder</code>: 1D-CNN (3 → 32 → 64 → 128 channels, global average pooling, projection head) producing 128-d embeddings, trained with NT-Xent contrastive loss (temperature 0.5).</li>
+                <li>MLP fall-detection classifier and a multiclass activity classifier on frozen embeddings.</li>
+                <li>Datasets: SisFall, WISDM, PAMAP2 plus smartwatch/phone samples; Streamlit dashboard with t-SNE/UMAP views of the embedding space.</li>
+              </ul>
+              <h4>Results</h4>
+              <ul>
+                <li>Overall 83.0% accuracy; per device SisFall 82.4%, WISDM 88.6%, PAMAP2 69.4%.</li>
+                <li>Fall 96.3%, Walking 95.6%; Sitting is the hard class at 42.5% (the next thing to fix).</li>
+              </ul>
+              <div class="modal__foot-links" data-links='[{"label":"View on GitHub","href":"https://github.com/Abhishekshah02/protobytes-2.0-team-Coder-Rex"}]'></div>
+            </div>
+          </article>
+
+          <!-- Similar image -->
+          <article class="project reveal" data-tags="mobile" tabindex="0" style="--d:160ms">
+            <div class="project__top">
+              <div class="project__icon" style="background:var(--violet-soft)">🖼️</div>
+              <div class="project__links">
+                <a href="https://github.com/Abhishekshah02/similar-image-detection-app" target="_blank" rel="noopener" aria-label="GitHub repository" data-stop><svg><use href="#i-github"/></svg></a>
+              </div>
+            </div>
+            <div class="project__kind">Mobile · Flutter · on-device</div>
+            <h3 class="project__title">Similar image detection app</h3>
+            <p class="project__desc">Flags duplicate or near-duplicate photos before you save them, entirely on-device with no model download and no backend.</p>
+            <ul class="project__impact">
+              <li>Perceptual hashing: <strong>pHash + dHash</strong> compared by Hamming distance</li>
+              <li>Tiered verdicts: exact duplicate (≤3) vs very likely duplicate (≤5)</li>
+              <li>Single- and multi-image picking; hashes persisted locally</li>
+            </ul>
+            <div class="chips">
+              <span class="chip">Flutter / Dart</span><span class="chip">image</span><span class="chip">image_picker</span><span class="chip">shared_preferences</span>
+            </div>
+            <button class="project__more" type="button" data-open>Details <svg><use href="#i-arrow"/></svg></button>
+
+            <div class="project__details">
+              <h4>Problem</h4>
+              <p>Phones fill up with repeated shots. Cloud-based duplicate detection costs money and privacy; this app shows the same result can be had with a few lines of signal processing on the device.</p>
+              <h4>How it works</h4>
+              <ul>
+                <li>Computes an 8×8 grayscale average hash (pHash) and a 9×8 gradient hash (dHash) for each image with the <code>image</code> package.</li>
+                <li>Compares against every previously stored hash by Hamming distance: ≤3 on both hashes is an exact duplicate, ≤5 is a very likely duplicate.</li>
+                <li>Pick one or many photos via <code>image_picker</code>; a dialog warns or confirms, then the hash is persisted with <code>shared_preferences</code>.</li>
+              </ul>
+              <div class="modal__foot-links" data-links='[{"label":"View on GitHub","href":"https://github.com/Abhishekshah02/similar-image-detection-app"}]'></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Smaller work -->
+        <div class="also reveal">
+          <div class="also__title">Also built</div>
+          <ul class="also__list">
+            <li><a href="https://github.com/Abhishekshah02/Aarambha_hackathon" target="_blank" rel="noopener"><b>Journey to Explore Nepal</b> <span>tourism site for temples and heritage sites, with a Gemini-powered chat assistant on Express · Aarambha hackathon</span></a></li>
+            <li><span class="also__static"><b>Worklist</b> <span>task and work-tracking app</span></span></li>
+            <li><a href="https://github.com/Abhishekshah02/Contact-Management-System" target="_blank" rel="noopener"><b>Contact Management System</b> <span>Tkinter GUI with add / edit / search / delete and file persistence</span></a></li>
+            <li><a href="https://github.com/Abhishekshah02/Computer-graphic" target="_blank" rel="noopener"><b>Computer graphics algorithms</b> <span>DDA, Bresenham, midpoint circle/ellipse and 2D/3D transforms in pygame</span></a></li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-
-    <!-- Projects Section -->
-    <section id=" projects" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="fade-in">
-                <h2 class="text-4xl font-bold text-center mb-4">Featured <span class="gradient-text">Projects</span>
-                </h2>
-                <p class="text-gray-500 text-center mb-16 max-w-2xl mx-auto">Some of my recent
-                    work</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="scale-in stagger-1 card-hover bg-gray-50 rounded-2xl overflow-hidden shadow-sm">
-                    <div
-                        class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-6xl animate-gradient">
-                        🤖
-                    </div>
-                    <div class="p-6">
-                        <div class="flex gap-2 mb-3">
-                            <span
-                                class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-xs font-medium">Python</span>
-                            <span
-                                class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-xs font-medium">TensorFlow</span>
-                            <span
-                                class="px-3 py-1 bg-rose-100 text-rose-600 rounded-full text-xs font-medium">numpy</span>
-                            <span
-                                class="px-3 py-1 bg-rose-100 text-rose-600 rounded-full text-xs font-medium">matplotlib</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">
-                            Muzzle-Based-Biometric-Identification-System-For-Cattles-in-Nepal
-                        </h3>
-                        <p class="text-gray-600 text-sm mb-4">Machine learning system for
-                            detecting the cattle through
-                            the muzzle of the cattle</p>
-                        <div class="flex gap-4">
-                            <a href="#" class="text-indigo-600 font-medium text-sm hover:underline">Live
-                                Demo →</a>
-                            <a href="#" class="text-gray-500 font-medium text-sm hover:underline">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="scale-in stagger-2 card-hover bg-gray-50 rounded-2xl overflow-hidden shadow-sm">
-                    <div
-                        class="h-48 bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-6xl animate-gradient">
-                        📊
-                    </div>
-                    <div class="p-6">
-                        <div class="flex gap-2 mb-3">
-                            <span
-                                class="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-xs font-medium">Python</span>
-                            <span
-                                class="px-3 py-1 bg-rose-100 text-rose-600 rounded-full text-xs font-medium">Pandas</span>
-                            <span
-                                class="px-3 py-1 bg-rose-100 text-rose-600 rounded-full text-xs font-medium">numpy</span>
-                            <span
-                                class="px-3 py-1 bg-rose-100 text-rose-600 rounded-full text-xs font-medium">matplotlib</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">
-                            Skin-Lesion-Classification-and-Segmentation</h3>
-                        <p class="text-gray-600 text-sm mb-4">Classfication of the skin lesion
-                            and segementation of the
-                            skin that can cause cancer</p>
-                        <div class="flex gap-4">
-                            <a href="#" class="text-indigo-600 font-medium text-sm hover:underline">Live
-                                Demo →</a>
-                            <a href="#" class="text-gray-500 font-medium text-sm hover:underline">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="scale-in stagger-3 card-hover bg-gray-50 rounded-2xl overflow-hidden shadow-sm">
-                    <div
-                        class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-6xl animate-gradient">
-                        🚀
-                    </div>
-                    <div class="p-6">
-                        <div class="flex gap-2 mb-3">
-                            <span
-                                class="px-3 py-1 bg-emerald-100 text-emerald-600 rounded-full text-xs font-medium">Python</span>
-                            <span
-                                class="px-3 py-1 bg-teal-100 text-teal-600 rounded-full text-xs font-medium">tkinter</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Contact-Management-System</h3>
-                        <p class="text-gray-600 text-sm mb-4">Conatact management system
-                            designed using tkinter with the
-                            option to add conatact, edit contact, search contact, and delete
-                            contact</p>
-                        <div class="flex gap-4">
-                            <a href="#" class="text-indigo-600 font-medium text-sm hover:underline">Live
-                                Demo →</a>
-                            <a href="#" class="text-gray-500 font-medium text-sm hover:underline">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-12 fade-in">
-                <a href="https://github.com/Abhishekshah02" target="_blank"
-                    class="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-full font-medium hover:border-indigo-600 hover:text-indigo-600 hover:scale-105 transition-all duration-300">
-                    View All Projects
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                </a>
-            </div>
+    <!-- ===================== SKILLS ===================== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">04 — Skills</span>
+            <h2 class="section-title">Tools I reach for.</h2>
+          </div>
+          <p class="section-sub">Everything here has been used in a shipped project above, not just a tutorial.</p>
         </div>
+
+        <div class="skills">
+          <div class="skill-group reveal">
+            <div class="skill-group__head"><span class="ico">{ }</span><div><h3>Languages</h3><small>daily drivers</small></div></div>
+            <div class="chips">
+              <span class="chip">Python</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">C</span><span class="chip">C++</span><span class="chip">Dart</span><span class="chip">SQL</span><span class="chip">HTML / CSS</span>
+            </div>
+          </div>
+          <div class="skill-group reveal" style="--d:60ms">
+            <div class="skill-group__head"><span class="ico">🧠</span><div><h3>ML &amp; data</h3><small>train · evaluate · explain</small></div></div>
+            <div class="chips">
+              <span class="chip">PyTorch</span><span class="chip">TensorFlow / Keras</span><span class="chip">scikit-learn</span><span class="chip">Hugging Face</span><span class="chip">sentence-transformers</span><span class="chip">FAISS</span><span class="chip">Chroma</span><span class="chip">ONNX</span><span class="chip">SHAP</span><span class="chip">Pandas / NumPy</span><span class="chip">Matplotlib</span>
+            </div>
+          </div>
+          <div class="skill-group reveal" style="--d:120ms">
+            <div class="skill-group__head"><span class="ico">👁️</span><div><h3>Deep learning &amp; vision</h3><small>architectures I've trained</small></div></div>
+            <div class="chips">
+              <span class="chip">ResNet</span><span class="chip">MobileNet</span><span class="chip">DenseNet</span><span class="chip">Swin Transformer</span><span class="chip">U-Net</span><span class="chip">ArcFace</span><span class="chip">LSTM</span><span class="chip">BERT / LoRA</span><span class="chip">OpenCV</span><span class="chip">LBP · LPQ · HOG · Gabor</span>
+            </div>
+          </div>
+          <div class="skill-group reveal" style="--d:180ms">
+            <div class="skill-group__head"><span class="ico">⚙️</span><div><h3>Backend</h3><small>APIs · realtime · data</small></div></div>
+            <div class="chips">
+              <span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">FastAPI</span><span class="chip">Flask</span><span class="chip">MongoDB / Mongoose</span><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Redis</span><span class="chip">RabbitMQ</span><span class="chip">Socket.IO</span><span class="chip">Zod / Pydantic</span><span class="chip">REST</span>
+            </div>
+          </div>
+          <div class="skill-group reveal" style="--d:240ms">
+            <div class="skill-group__head"><span class="ico">☁️</span><div><h3>Cloud, DevOps &amp; testing</h3><small>ship it and keep it up</small></div></div>
+            <div class="chips">
+              <span class="chip">AWS S3 / Lambda / EC2</span><span class="chip">Wasabi</span><span class="chip">Cloudflare Workers</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Firebase</span><span class="chip">Linux</span><span class="chip">Git / GitHub</span><span class="chip">Playwright / Jest</span><span class="chip">pytest</span><span class="chip">Postman</span>
+            </div>
+          </div>
+          <div class="skill-group reveal" style="--d:300ms">
+            <div class="skill-group__head"><span class="ico">📱</span><div><h3>Frontend, mobile &amp; hardware</h3><small>from browser to board</small></div></div>
+            <div class="chips">
+              <span class="chip">Next.js</span><span class="chip">React</span><span class="chip">Redux Toolkit</span><span class="chip">Tailwind</span><span class="chip">Framer Motion</span><span class="chip">Flutter</span><span class="chip">Streamlit</span><span class="chip">ESP32</span><span class="chip">Raspberry Pi Pico</span><span class="chip">Arduino</span><span class="chip">Pixhawk / KK2.1.5 drones</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Contact Section - Enhanced -->
-    <section id="contact"
-        class="py-20 bg-gradient-to-br from-gray-900 via-indigo-950 to-purple-950 text-white relative overflow-hidden">
-        <!-- Background decorations -->
-        <div
-            class="absolute top-0 left-0 w-72 h-72 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 floating">
+    <!-- ===================== CREDENTIALS ===================== -->
+    <section class="section" id="credentials">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">05 — Credentials</span>
+            <h2 class="section-title">Certificates &amp; <em>achievements</em>.</h2>
+          </div>
+          <p class="section-sub">Fellowships, hackathons, competitions and research selections. Cards with a preview open the full certificate.</p>
         </div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 floating"
-            style="animation-delay: 1.5s;"></div>
 
-        <div class="max-w-6xl mx-auto px-6 relative z-10">
-            <div class="fade-in text-center mb-16">
-                <span
-                    class="inline-block px-4 py-2 bg-indigo-600/30 text-indigo-300 rounded-full text-sm font-medium mb-4">💬
-                    Let's Connect</span>
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Get In <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Touch</span>
-                </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Have a project in mind? I'd love to hear about it.
-                    Let's create something amazing together!</p>
+        <div class="creds">
+          <article class="cred reveal" data-img="assets/img/fuse-ai-fellowship.png" tabindex="0" aria-label="View certificate: Fusemachines AI Fellowship 2026">
+            <div class="cred__media">
+              <img src="assets/img/fuse-ai-fellowship.png" alt="Fusemachines Artificial Intelligence Fellowship recipient badge, 2026" loading="lazy" onerror="this.parentNode.classList.add('is-missing')" />
+              <span class="cred__fallback">🎓</span>
+            </div>
+            <div class="cred__body">
+              <div class="cred__kind">Fellowship · 2026</div>
+              <h3 class="cred__title">Artificial Intelligence Fellowship — Recipient</h3>
+              <p class="cred__issuer">Fusemachines (fuse|ai) · selected cohort, 16 weekly builds</p>
+              <span class="cred__view">View badge <svg width="14" height="14"><use href="#i-arrow"/></svg></span>
+            </div>
+          </article>
+
+          <article class="cred reveal" data-img="assets/img/cert-protobytes-2.jpg" tabindex="0" aria-label="View certificate: Protobytes Hackathon 2.0" style="--d:60ms">
+            <div class="cred__media">
+              <img src="assets/img/cert-protobytes-2.jpg" alt="Certificate of participation, Protobytes Hackathon 2.0, ACEM, February 2026" loading="lazy" onerror="this.parentNode.classList.add('is-missing')" />
+              <span class="cred__fallback">💡</span>
+            </div>
+            <div class="cred__body">
+              <div class="cred__kind">Hackathon · 12–14 Feb 2026</div>
+              <h3 class="cred__title">Protobytes Hackathon 2.0 — Participation</h3>
+              <p class="cred__issuer">PACE · Dept. of Electronics &amp; Computer Engineering, ACEM · 60-hour hackathon, team Coder Rex</p>
+              <span class="cred__view">View certificate <svg width="14" height="14"><use href="#i-arrow"/></svg></span>
+            </div>
+          </article>
+
+          <article class="cred reveal" style="--d:120ms">
+            <div class="cred__media cred__media--icon"><span class="cred__fallback">💡</span></div>
+            <div class="cred__body">
+              <div class="cred__kind">Hackathon · earlier edition</div>
+              <h3 class="cred__title">Protobytes Hackathon 1.0 — Participation</h3>
+              <p class="cred__issuer">PACE · Advanced College of Engineering and Management</p>
+            </div>
+          </article>
+
+          <article class="cred reveal">
+            <div class="cred__media cred__media--icon"><span class="cred__fallback">🔬</span></div>
+            <div class="cred__body">
+              <div class="cred__kind">Research · 2025</div>
+              <h3 class="cred__title">Prixa Student Collaborator — Selected</h3>
+              <p class="cred__issuer">Prixa · assigned the cattle muzzle biometrics research project</p>
+            </div>
+          </article>
+
+          <article class="cred reveal" style="--d:60ms">
+            <div class="cred__media cred__media--icon"><span class="cred__fallback">🌏</span></div>
+            <div class="cred__body">
+              <div class="cred__kind">Competition · Techfest 2022</div>
+              <h3 class="cred__title">Represented Nepal at Techfest, IIT Bombay</h3>
+              <p class="cred__issuer">Runner-up in Meshmerize · IIT Bombay's annual science and technology festival</p>
+            </div>
+          </article>
+
+          <article class="cred reveal" style="--d:120ms">
+            <div class="cred__media cred__media--icon"><span class="cred__fallback">🥈</span></div>
+            <div class="cred__body">
+              <div class="cred__kind">Competition</div>
+              <h3 class="cred__title">Runner-up, Robo Soccer</h3>
+              <p class="cred__issuer">Orbit Engineering Expo</p>
+            </div>
+          </article>
+
+          <article class="cred reveal">
+            <div class="cred__media cred__media--icon"><span class="cred__fallback">🤝</span></div>
+            <div class="cred__body">
+              <div class="cred__kind">Volunteering · 2022</div>
+              <h3 class="cred__title">Volunteer &amp; Referee, Cozmo Clench</h3>
+              <p class="cred__issuer">Technorion Nepal 2022</p>
+            </div>
+          </article>
+
+          <article class="cred reveal" style="--d:60ms">
+            <div class="cred__media cred__media--icon"><span class="cred__fallback">🚀</span></div>
+            <div class="cred__body">
+              <div class="cred__kind">Volunteering</div>
+              <h3 class="cred__title">Volunteer, Startup Fest</h3>
+              <p class="cred__issuer">Robotics Association of Nepal</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="two-col two-col--even">
+          <div class="panel reveal">
+            <h3>🎒 Education</h3>
+            <ul class="edu">
+              <li>
+                <b>B.E. Computer Engineering — Graduated 2026</b>
+                <span>Advanced College of Engineering and Management (ACEM), Tribhuvan University</span>
+                <small>2022 — 2026 · no backlogs</small>
+              </li>
+              <li>
+                <b>+2 Science (Mathematics)</b>
+                <span>Capital College and Research Center (CCRC)</span>
+                <small>2019 — 2021 · GPA 3.55</small>
+              </li>
+            </ul>
+          </div>
+
+          <div class="panel reveal" style="--d:100ms">
+            <h3>📄 Resume</h3>
+            <p style="color:var(--fg-2);font-size:0.95rem;margin-bottom:14px">One page, same names, dates and stacks as this site.</p>
+            <a class="btn btn--ghost" href="assets/Abhishek_Kumar_Shah_Resume.pdf" target="_blank" rel="noopener"><svg><use href="#i-download"/></svg> Download PDF</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact reveal">
+          <div class="contact__grid">
+            <div>
+              <span class="eyebrow">06 — Contact</span>
+              <h2 class="contact__title" style="margin-top:12px">Let's build something that <em>runs in production</em>.</h2>
+              <p class="contact__lead">
+                I'm looking for new-grad ML engineering or backend roles, and I'm happy to talk about research collaborations in computer vision.
+                Email is the fastest way to reach me.
+              </p>
+              <div class="hero__cta" style="margin-top:28px">
+                <a class="btn btn--primary" href="mailto:abhishekshah134567@gmail.com?subject=Hi%20Abhishek"><svg><use href="#i-mail"/></svg> Email me</a>
+                <a class="btn btn--ghost" href="https://www.linkedin.com/in/abhishek-shah002/" target="_blank" rel="noopener"><svg><use href="#i-linkedin"/></svg> LinkedIn</a>
+              </div>
             </div>
 
-            <div class="grid lg:grid-cols-5 gap-12">
-                <!-- Contact Info Cards -->
-                <div class="lg:col-span-2 space-y-6">
-                    <div
-                        class="slide-left stagger-1 contact-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 cursor-pointer">
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-2xl">
-                                📧
-                            </div>
-                            <div>
-                                <p class="text-sm text-gray-400 mb-1">Email Me</p>
-                                <p class="font-semibold text-lg">abhishekshah134567@example.com</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="slide-left stagger-2 contact-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 cursor-pointer">
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center text-2xl">
-                                📍
-                            </div>
-                            <div>
-                                <p class="text-sm text-gray-400 mb-1">Location</p>
-                                <p class="font-semibold text-lg">Kathmandu,Nepal</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="slide-left stagger-3 contact-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 cursor-pointer">
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center text-2xl">
-                                📱
-                            </div>
-                            <div>
-                                <p class="text-sm text-gray-400 mb-1">Phone</p>
-                                <p class="font-semibold text-lg">+977 9867310644</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Social Links -->
-                    <div class="slide-left stagger-4 pt-4">
-                        <p class="text-gray-400 mb-4">Follow me on social media</p>
-                        <div class="flex gap-4">
-                            <a href="https://github.com/Abhishekshah02" target="_blank"
-                                class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                                </svg>
-                            </a>
-                            <a href="https://www.linkedin.com/in/abhishek-shah002/" target="_blank"
-                                class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-blue-600/50 hover:scale-110 transition-all duration-300">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                </svg>
-                            </a>
-                            <a href="https://twitter.com" target="_blank"
-                                class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-blue-400/50 hover:scale-110 transition-all duration-300">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                                </svg>
-                            </a>
-                            <a href="https://dribbble.com" target="_blank"
-                                class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-pink-500/50 hover:scale-110 transition-all duration-300">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 0c-6.628 0-12 5.373-12 12s5.372 12 12 12 12-5.373 12-12-5.372-12-12-12zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073-.244-.563-.497-1.125-.767-1.68 2.31-1 4.165-2.358 5.548-4.082 1.35 1.594 2.197 3.619 2.322 5.835zm-3.842-7.282c-1.205 1.554-2.868 2.783-4.986 3.68-1.016-1.861-2.178-3.676-3.488-5.438.779-.197 1.591-.314 2.431-.314 2.275 0 4.368.779 6.043 2.072zm-10.516-.993c1.331 1.742 2.511 3.538 3.537 5.381-2.43.715-5.331 1.082-8.684 1.105.692-2.835 2.601-5.193 5.147-6.486zm-5.44 8.834l.013-.256c3.849-.005 7.169-.448 9.95-1.322.233.475.456.952.67 1.432-3.38 1.057-6.165 3.222-8.337 6.48-1.432-1.719-2.296-3.927-2.296-6.334zm3.829 7.81c1.969-3.088 4.482-5.098 7.598-6.027.928 2.42 1.609 4.91 2.043 7.46-3.349 1.291-6.953.666-9.641-1.433zm11.586.43c-.438-2.353-1.08-4.653-1.92-6.897 1.876-.265 3.94-.196 6.199.196-.437 2.786-2.028 5.192-4.279 6.701z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Form -->
-                <div class="lg:col-span-3 slide-right">
-                    <form id="contactForm" action="https://formspree.io/f/xzdgnebb" method="POST"
-                        class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 space-y-6">
-
-                        <!-- Add this hidden input for Formspree -->
-                        <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio">
-
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm text-gray-400 mb-2">Your Name</label>
-                                <input type="text" name="name" placeholder="Abhishek" required
-                                    class="input-animated w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-indigo-500 focus:bg-white/10 text-white placeholder-gray-500">
-                            </div>
-                            <div>
-                                <label class="block text-sm text-gray-400 mb-2">Your Email</label>
-                                <input type="email" name="email" placeholder="abhishek@example.com" required
-                                    class="input-animated w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-indigo-500 focus:bg-white/10 text-white placeholder-gray-500">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-sm text-gray-400 mb-2">Subject</label>
-                            <input type="text" name="subject" placeholder="Project Discussion"
-                                class="input-animated w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-indigo-500 focus:bg-white/10 text-white placeholder-gray-500">
-                        </div>
-                        <div>
-                            <label class="block text-sm text-gray-400 mb-2">Your Message</label>
-                            <textarea name="message" placeholder="Tell me about your project..." rows="5" required
-                                class="input-animated w-full px-4 py-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-indigo-500 focus:bg-white/10 text-white placeholder-gray-500 resize-none"></textarea>
-                        </div>
-
-                        <!-- Add success/error messages container -->
-                        <div id="form-message" class="hidden p-4 rounded-lg"></div>
-
-                        <button type="submit"
-                            class="w-full px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 animate-gradient">
-                            <span id="submit-text">Send Message</span>
-                            <svg id="submit-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                            <svg id="loading-spinner" class="hidden w-5 h-5 animate-spin"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
-                                    stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor"
-                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                                </path>
-                            </svg>
-                        </button>
-                    </form>
-                </div>
-            </div> <!-- Close grid lg:grid-cols-5 -->
-        </div> <!-- Close max-w-6xl -->
-    </section> <!-- Close contact section -->
-
-    <!-- Footer -->
-    <footer class="bg-gray-950 text-gray-400 py-8 w-full">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <p class="mb-4">© 2024 Abhishek Kumar Shah. All rights reserved.</p>
-            <div class="flex justify-center gap-8">
-                <a href="https://github.com/Abhishekshah02" target="_blank"
-                    class="hover:text-white transition-colors duration-300 hover:scale-105">
-                    GitHub
-                </a>
-                <a href="" target="_blank" class="hover:text-white transition-colors duration-300 hover:scale-105">
-                    LinkedIn
-                </a>
+            <div class="contact__list">
+              <div class="copy-row">
+                <span class="ico"><svg><use href="#i-mail"/></svg></span>
+                <div><b>Email</b><span id="emailText">abhishekshah134567@gmail.com</span></div>
+                <button class="copy-btn" type="button" data-copy="abhishekshah134567@gmail.com">copy</button>
+              </div>
+              <a href="tel:+9779867310644">
+                <span class="ico"><svg><use href="#i-phone"/></svg></span>
+                <div><b>Phone / WhatsApp</b><span>+977 986-731-0644</span></div>
+              </a>
+              <a href="https://github.com/Abhishekshah02" target="_blank" rel="noopener">
+                <span class="ico"><svg><use href="#i-github"/></svg></span>
+                <div><b>GitHub</b><span>github.com/Abhishekshah02</span></div>
+              </a>
+              <a href="https://www.linkedin.com/in/abhishek-shah002/" target="_blank" rel="noopener">
+                <span class="ico"><svg><use href="#i-linkedin"/></svg></span>
+                <div><b>LinkedIn</b><span>linkedin.com/in/abhishek-shah002</span></div>
+              </a>
+              <div class="copy-row" style="cursor:default">
+                <span class="ico"><svg><use href="#i-pin"/></svg></span>
+                <div><b>Location</b><span>Kalanki, Kathmandu, Nepal · open to remote</span></div>
+              </div>
             </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
+  </main>
 
-    <!-- Formspree JavaScript (add this BEFORE your custom script) -->
-    <script>
-        // Formspree submission handling
-        var form = document.getElementById("contactForm");
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>© <span id="year">2026</span> Abhishek Kumar Shah</div>
+      <div class="footer__links">
+        <a href="https://github.com/Abhishekshah02" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/abhishek-shah002/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:abhishekshah134567@gmail.com">Email</a>
+        <a href="assets/Abhishek_Kumar_Shah_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+    </div>
+  </footer>
 
-        async function handleSubmit(event) {
-            event.preventDefault();
+  <button class="icon-btn to-top" id="toTop" type="button" aria-label="Back to top"><svg><use href="#i-up"/></svg></button>
 
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const submitText = document.getElementById('submit-text');
-            const submitIcon = document.getElementById('submit-icon');
-            const loadingSpinner = document.getElementById('loading-spinner');
-            const formMessage = document.getElementById('form-message');
+  <!-- Project modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal__panel">
+      <div class="modal__head">
+        <h3 id="modalTitle">Project</h3>
+        <button class="icon-btn" type="button" id="modalClose" aria-label="Close"><svg><use href="#i-close"/></svg></button>
+      </div>
+      <div class="modal__body" id="modalBody"></div>
+      <div class="modal__foot" id="modalFoot"></div>
+    </div>
+  </div>
 
-            // Show loading state
-            submitText.textContent = 'Sending...';
-            submitIcon.classList.add('hidden');
-            loadingSpinner.classList.remove('hidden');
-            submitBtn.disabled = true;
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-            const data = new FormData(event.target);
-
-            try {
-                const response = await fetch(event.target.action, {
-                    method: form.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    // Success message
-                    showMessage('Message sent successfully! I\'ll get back to you soon.', 'success', formMessage);
-                    form.reset();
-
-                    // Change button to success state
-                    submitBtn.classList.remove('from-indigo-600', 'to-purple-600');
-                    submitBtn.classList.add('bg-green-600');
-                    submitText.textContent = 'Message Sent!';
-                    submitIcon.classList.remove('hidden');
-                    loadingSpinner.classList.add('hidden');
-
-                    // Reset button after 3 seconds
-                    setTimeout(() => {
-                        submitBtn.classList.add('from-indigo-600', 'to-purple-600');
-                        submitBtn.classList.remove('bg-green-600');
-                        submitText.textContent = 'Send Message';
-                    }, 3000);
-                } else {
-                    // Error message
-                    showMessage('Oops! Something went wrong. Please try again.', 'error', formMessage);
-                    resetButton(submitText, submitIcon, loadingSpinner, submitBtn);
-                }
-            } catch (error) {
-                // Network error
-                showMessage('Network error. Please check your connection and try again.', 'error', formMessage);
-                resetButton(submitText, submitIcon, loadingSpinner, submitBtn);
-            }
-        }
-
-        function resetButton(submitText, submitIcon, loadingSpinner, submitBtn) {
-            submitText.textContent = 'Send Message';
-            submitIcon.classList.remove('hidden');
-            loadingSpinner.classList.add('hidden');
-            submitBtn.disabled = false;
-        }
-
-        function showMessage(text, type, element) {
-            element.textContent = text;
-            element.className = 'p-4 rounded-lg ' +
-                (type === 'success' ? 'bg-green-500/20 text-green-400 border border-green-500/30' :
-                    'bg-red-500/20 text-red-400 border border-red-500/30');
-            element.classList.remove('hidden');
-
-            setTimeout(() => {
-                element.classList.add('hidden');
-            }, 5000);
-        }
-
-        form.addEventListener("submit", handleSubmit);
-    </script>
-
-    <script>
-        // Mobile menu toggle
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when clicking a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Navbar background on scroll
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md');
-            } else {
-                navbar.classList.remove('shadow-md');
-            }
-        });
-
-        // Scroll animations with stagger support
-        const animatedElements = document.querySelectorAll('.fade-in, .slide-left, .slide-right, .scale-in');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-        animatedElements.forEach(el => observer.observe(el));
-
-        // Parallax effect on scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.floating');
-            parallaxElements.forEach((el, index) => {
-                const speed = 0.1 + (index * 0.05);
-                el.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
-    </script>
+  <script src="assets/js/main.js" defer></script>
 </body>
-
 </html>

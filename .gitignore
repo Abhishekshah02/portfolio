@@ -1,0 +1,38 @@
+# Browser-test output (screenshots, snapshots, console logs)
+.playwright-mcp/
+test-results/
+playwright-report/
+
+# Dependencies / build output (none needed for this static site)
+node_modules/
+dist/
+.cache/
+
+# Local tool config and editor files
+.claude/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Secrets and local environment
+.env
+.env.*
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+
+# OS clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Resume LaTeX source and build output stay local (only the PDF in assets/ is published)
+resume/
+*.aux
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
