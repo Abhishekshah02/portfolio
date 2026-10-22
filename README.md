@@ -12,6 +12,7 @@ Hand-written HTML, CSS and vanilla JavaScript. No build step, no frameworks, no 
 index.html                 # single page: hero, highlights, about, experience, projects, skills, credentials, contact
 assets/css/style.css       # design tokens (dark + light), layout, components, reduced-motion + print rules
 assets/js/main.js          # theme toggle, scroll-spy, reveal-on-scroll, rotating role line, filters, modal + lightbox
+assets/js/motion.js        # GSAP choreography: hero intro, scroll reveals, count-ups, parallax, hover effects
 assets/Abhishek_Kumar_Shah_Resume.pdf
 assets/img/                # logos and certificate images (see below)
 profile.jpg
@@ -39,6 +40,13 @@ certificate, copy one `<article class="cred">` block in `index.html`, set `data-
 The site serves `assets/Abhishek_Kumar_Shah_Resume.pdf`. Its LaTeX source is kept locally
 (git-ignored, not published). To update it, rebuild the PDF, save it over
 `assets/Abhishek_Kumar_Shah_Resume.pdf` keeping that exact filename, then commit and push.
+
+## Motion
+
+`assets/js/motion.js` drives the animations with GSAP 3.13 (gsap, ScrollTrigger, SplitText from cdnjs).
+If the CDN is unreachable the page silently falls back to the CSS reveals in `main.js`.
+`prefers-reduced-motion` disables all of it. Append `?slowmo=1` to the URL to watch the
+choreography at one-eighth speed when reviewing changes.
 
 ## Run the site locally
 

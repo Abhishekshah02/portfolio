@@ -2526,3 +2526,81 @@ ul {
   object-fit: cover;
   border-radius: inherit;
 }
+
+/* hide the scroll cue on short windows so it never overlaps the hero text */
+@media (max-height: 780px) {
+  .scroll-cue {
+    display: none;
+  }
+}
+
+/* ---------- Motion layer (GSAP owns these when loaded) ---------- */
+.has-gsap .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.has-gsap .project {
+  transition: border-color 0.3s, box-shadow 0.35s var(--ease), opacity 0.3s;
+  will-change: transform;
+}
+
+.has-gsap .project:hover {
+  transform: none;
+}
+
+.has-gsap .nav {
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.hero__title .ch {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.section-title .ln,
+.contact__title .ln {
+  display: block;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.icon-btn:active {
+  transform: scale(0.92);
+}
+
+.chip {
+  transition: transform 0.2s var(--ease), border-color 0.2s, background-color 0.2s;
+}
+
+.chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+}
+
+.theme-toggle {
+  transform-origin: 50% 50%;
+}
+
+.tile,
+.cred,
+.skill-group {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-gsap .project,
+  .tile,
+  .cred,
+  .skill-group {
+    will-change: auto;
+  }
+}
+
+.hero__title .wd {
+  display: inline-block;
+  white-space: nowrap;
+}

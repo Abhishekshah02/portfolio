@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abhishek Kumar Shah — AI/ML &amp; Backend Engineer</title>
   <meta name="description" content="Abhishek Kumar Shah is an AI/ML and backend engineer in Kathmandu, Nepal. Computer Engineering graduate (ACEM 2026), full-stack engineer at Drop, Fusemachines AI Fellow, cattle biometrics researcher. Open to new-grad ML and backend roles." />
   <meta name="author" content="Abhishek Kumar Shah" />
-  <meta name="theme-color" content="#09090c" />
+  <meta name="theme-color" content="#f7f7f4" />
   <link rel="canonical" href="https://abhishekkumarshah.com.np/" />
 
   <!-- Open Graph / Twitter -->
@@ -28,12 +28,11 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <script>
-    // Apply saved theme before paint to avoid a flash.
+    // Light is the default. Only a theme the visitor picked with the toggle overrides it.
     (function () {
       try {
         var t = localStorage.getItem("theme");
-        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
-        else if (window.matchMedia("(prefers-color-scheme: light)").matches) document.documentElement.setAttribute("data-theme", "light");
+        if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
       } catch (e) {}
     })();
   </script>
@@ -208,17 +207,17 @@
           </div>
           <div class="tile reveal" style="--d:80ms">
             <div class="tile__kicker">Cattle biometrics</div>
-            <div class="tile__num">86.6<em>%</em></div>
+            <div class="tile__num"><span data-count="86.6" data-decimals="1">86.6</span><em>%</em></div>
             <p class="tile__label">Top-1 identification across 455 cattle identities with a ResNet-50 + ArcFace embedding model (94.2% Top-5).</p>
           </div>
           <div class="tile reveal" style="--d:160ms">
             <div class="tile__kicker">Field data</div>
-            <div class="tile__num"><em>90</em> <span class="tile__unit">cattle</span></div>
+            <div class="tile__num"><em data-count="90">90</em> <span class="tile__unit">cattle</span></div>
             <p class="tile__label">Custom dataset collected on farms across the Kathmandu valley: face, left/right body and muzzle images per animal.</p>
           </div>
           <div class="tile reveal" style="--d:240ms">
             <div class="tile__kicker">Fusemachines fellowship</div>
-            <div class="tile__num"><em>16</em> <span class="tile__unit">builds</span></div>
+            <div class="tile__num"><em data-count="16">16</em> <span class="tile__unit">builds</span></div>
             <p class="tile__label">Weekly deliverables from FastAPI services and churn models to a RAG + multi-agent support assistant.</p>
           </div>
         </div>
@@ -421,7 +420,7 @@
             <div class="feat-stats">
               <div><b>#1 / #2</b><span>committer on web / backend</span></div>
               <div><b>240 → 50</b><span>page layers after avatar fix</span></div>
-              <div><b>~860</b><span>images shrunk in a prod job</span></div>
+              <div><b>~<span data-count="860">860</span></b><span>images shrunk in a prod job</span></div>
             </div>
             <div class="chips">
               <span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">MongoDB</span><span class="chip">Socket.IO</span><span class="chip">RabbitMQ</span><span class="chip">Next.js</span><span class="chip">FastAPI + FAISS</span><span class="chip">Cloudflare Workers</span><span class="chip">AWS</span>
@@ -534,9 +533,9 @@
               and shipped a mobile app to register and identify animals by camera.
             </p>
             <div class="feat-stats">
-              <div><b>86.6%</b><span>Top-1 across 455 identities</span></div>
-              <div><b>0.037</b><span>equal-error rate · AUC 0.988</span></div>
-              <div><b>90</b><span>cattle photographed on farms</span></div>
+              <div><b><span data-count="86.6" data-decimals="1">86.6</span>%</b><span>Top-1 across 455 identities</span></div>
+              <div><b data-count="0.037" data-decimals="3">0.037</b><span>equal-error rate · AUC 0.988</span></div>
+              <div><b data-count="90">90</b><span>cattle photographed on farms</span></div>
             </div>
             <div class="chips">
               <span class="chip">TensorFlow / Keras</span><span class="chip">ResNet-50 + ArcFace</span><span class="chip">Albumentations</span><span class="chip">LBP · LPQ · HOG · Gabor</span><span class="chip">OpenCV</span><span class="chip">Flutter</span>
@@ -974,6 +973,10 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" defer></script>
+  <script src="assets/js/motion.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

@@ -140,7 +140,7 @@
         }
       };
       roleText.textContent = "";
-      setTimeout(step, 500);
+      setTimeout(step, window.MOTION_INTRO_DELAY || 500);
     }
   }
 
