@@ -22,9 +22,13 @@ CNAME                      # custom domain for GitHub Pages - keep this file
 
 | File | Used for |
 |---|---|
-| `drop-logo.png` | Drop logo in the hero tag and the Drop project card (already included) |
-| `fuse-ai-fellowship.png` | Fusemachines AI Fellowship recipient badge: hero tag, ShopAssist card, Credentials card |
-| `cert-protobytes-2.jpg` | Protobytes Hackathon 2.0 certificate, Credentials card + lightbox |
+| `drop-logo.png` | Drop logo (from dropit.club): hero tag and the Drop project card |
+| `fusemachines.svg`, `fusemachines-mark.png` | Official Fusemachines logo: hero tag, ShopAssist card, Credentials card |
+| `prixa.png` | Prixa logo: hero tag and Credentials card |
+| `techfest.png` | Techfest IIT Bombay logo: Credentials card |
+| `ran.png` | Robotics Association of Nepal logo: Credentials card |
+| `acem.png` | ACEM logo: Education entry |
+| `cert-protobytes-2.jpg` | Protobytes Hackathon 2.0 certificate (not yet added): Credentials card + lightbox |
 
 If a file is missing the page falls back to an emoji icon, so nothing breaks. To add another
 certificate, copy one `<article class="cred">` block in `index.html`, set `data-img` and the

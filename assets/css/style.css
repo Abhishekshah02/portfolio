@@ -2423,3 +2423,106 @@ ul {
 .cred:has(.cred__media.is-missing) {
   cursor: default;
 }
+
+/* ---------- Icons: line icons + official logo tiles ---------- */
+.ico--svg svg,
+.skill-group__head .ico svg {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+}
+
+.ico--logo {
+  width: auto;
+  min-width: 30px;
+  max-width: 84px;
+  padding: 4px 6px;
+  background: #fff;
+  border-color: var(--line-strong);
+}
+
+.ico--logo img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+.project__icon--svg svg {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+}
+
+.project__icon--logo {
+  width: auto;
+  min-width: 46px;
+  max-width: 130px;
+  padding: 8px 10px;
+  background: #fff;
+  border-color: var(--line-strong);
+}
+
+.project__icon--logo img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cred__media--logo {
+  background: #fff;
+  border-color: var(--line-strong);
+  padding: 10px;
+}
+
+.cred__media--logo img {
+  object-fit: contain;
+}
+
+.cred__fallback svg {
+  width: 34px;
+  height: 34px;
+  color: var(--accent);
+}
+
+.cred:has(.cred__media.is-missing) .cred__view {
+  display: none;
+}
+
+.panel h3 svg {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+  flex: none;
+}
+
+.edu li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: start;
+}
+
+.edu__logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid var(--line-strong);
+  object-fit: contain;
+}
+
+.ico--square {
+  width: 30px;
+  padding: 0;
+  background: transparent;
+  border-color: var(--line);
+}
+
+.ico--square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
